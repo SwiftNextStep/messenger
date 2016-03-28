@@ -495,7 +495,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Groups" id="jdX-2H-cer">
                         <barButtonItem key="leftBarButtonItem" image="navigation.png" id="DvZ-Vk-61u"/>
-                        <barButtonItem key="rightBarButtonItem" image="option.png" id="xIO-U6-2qw"/>
+                        <barButtonItem key="rightBarButtonItem" image="option.png" id="xIO-U6-2qw">
+                            <connections>
+                                <action selector="Options:" destination="Pge-ZU-FAv" id="K32-0g-vuM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
