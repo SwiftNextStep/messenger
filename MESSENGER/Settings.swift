@@ -7,7 +7,9 @@
 
 //----------------------------------------------------------------------------
 
-// 
+// I'M UNABLE TO UNAUTH USER BY CLICKING SIGN OUT ON CELLS.
+// I'M UNABLE TO ADD ACTION SHEET TO 'INVITE A FRIEND' CELL. MESSAGE, MAIL, CANCEL.
+// TAPPING ON 'REPORT A PROBLEM' WILL OPEN JSQ CONVERSATION WILL ADMIN
 
 import Foundation
 

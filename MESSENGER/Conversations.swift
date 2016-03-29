@@ -142,6 +142,7 @@ class Conversations : UITableViewController {
         
         newAccountAlert?.addTextFieldWithConfigurationHandler({ (textfield) -> Void in
             textfield.placeholder = "Full Name"
+            textfield.autocapitalizationType = UITextAutocapitalizationType.Words
             textfield.text = ""
         })
         

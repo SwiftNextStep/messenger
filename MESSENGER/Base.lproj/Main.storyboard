@@ -884,6 +884,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="akD-ma-LBy" kind="show" id="8Ki-Km-Ud5"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="nFM-6d-FsQ" style="IBUITableViewCellStyleDefault" id="3jD-kx-ta0">
                                         <rect key="frame" x="0.0" y="339.5" width="320" height="44"/>
@@ -983,6 +986,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Clb-ds-R52" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="628" y="-371"/>
+        </scene>
+        <!--Support-->
+        <scene sceneID="vXg-TX-qiz">
+            <objects>
+                <viewController id="akD-ma-LBy" customClass="Support" customModule="MESSENGER" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ULa-5m-chP"/>
+                        <viewControllerLayoutGuide type="bottom" id="FJJ-Ub-oZD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d4f-Bm-6Bk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Support" id="9Ga-TX-8Kv"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hhY-jK-EJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="628" y="320"/>
         </scene>
         <!--Blocked-->
         <scene sceneID="eJr-uQ-7w5">
@@ -1317,8 +1340,8 @@
         <image name="team.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RNU-RL-a7S"/>
         <segue reference="9MV-1u-yQZ"/>
+        <segue reference="yL2-TZ-vl4"/>
         <segue reference="Mi8-Fy-Y7I"/>
     </inferredMetricsTieBreakers>
 </document>

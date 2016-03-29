@@ -90,7 +90,8 @@ class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImageP
         
         alertController?.addTextFieldWithConfigurationHandler({ (textfield) -> Void in
             textfield.placeholder = "Full Name"
-            textfield.text = "userFullNameLabel"
+            textfield.autocapitalizationType = UITextAutocapitalizationType.Words
+            textfield.text = "User FullName"
             //TEXTFIELD.TEXT = currentUser.firstName string
         })
        
