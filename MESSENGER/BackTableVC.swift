@@ -7,6 +7,8 @@
 
 //----------------------------------------------------------------------------
 
+// I WANT CELL TEXT AND IMAGE TO HIGHLIGHT BLUE WHEN USER SELECTS CELL. 
+// THE COUNT ON THE RIGHT OF 'CONVERSATIONS' WILL DISPLAYS NUMBER OF UNREAD MESSAGES
 
 import Foundation
 
