@@ -31,8 +31,6 @@ class JSQViewController: JSQMessagesViewController {
         self.navigationItem.titleView = button
 
         print("id:\(senderId) fullName: \(senderDisplayName)")
-        //self.senderId = "uidFromFireBase"
-        //self.senderDisplayName = "userFullName"
         
         let bubbleFactory = JSQMessagesBubbleImageFactory()
         incomingBubble = bubbleFactory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleBlueColor())
@@ -112,9 +110,9 @@ class JSQViewController: JSQMessagesViewController {
         }
     }
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
-        //_ message = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text)
+
         firebase.childByAutoId().setValue(["message":text, "senderId":senderId, "senderDisplayName":senderDisplayName, "date":date.timeIntervalSince1970, "messageType": "txt"])
-        //messages.append(message)
+
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         finishSendingMessage()
     }
