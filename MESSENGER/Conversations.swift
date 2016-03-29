@@ -19,6 +19,7 @@ class Conversations : UITableViewController {
     var userEmail = String()
     var userUnivId = String()
     var fullname = String()
+    var passWord = String()
     
     @IBOutlet var Open: UIBarButtonItem!
     var alertController : UIAlertController?
