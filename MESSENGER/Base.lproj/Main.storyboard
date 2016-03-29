@@ -121,7 +121,7 @@
                                             <segue destination="OvY-zm-3z4" kind="custom" identifier="goToMain" customClass="SWRevealViewControllerSeguePushController" id="4xb-Lj-iPB"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Fav" textLabel="QrL-Xv-Egw" imageView="8Ja-6K-vWx" style="IBUITableViewCellStyleDefault" id="amz-it-4dI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Hello" textLabel="QrL-Xv-Egw" imageView="8Ja-6K-vWx" style="IBUITableViewCellStyleDefault" id="amz-it-4dI">
                                         <rect key="frame" x="0.0" y="134" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="amz-it-4dI" id="nCe-Zc-B0y">
@@ -242,6 +242,9 @@
                         </connections>
                     </tableView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="currentUserImage" destination="OWs-jE-qdO" id="FMY-IO-DlG"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UsF-BF-DMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -336,9 +339,9 @@
                     <navigationItem key="navigationItem" title="Conversations" id="Wbg-EK-dS3">
                         <barButtonItem key="backBarButtonItem" title=" " id="yDC-4k-vhc"/>
                         <barButtonItem key="leftBarButtonItem" image="navigation.png" id="JRB-1c-cNr"/>
-                        <barButtonItem key="rightBarButtonItem" title="Sign out" id="daj-ED-VWu">
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="auZ-A3-ZrN">
                             <connections>
-                                <action selector="signOut:" destination="z3D-2K-4Uh" id="svX-B7-nYc"/>
+                                <action selector="SignOUT:" destination="z3D-2K-4Uh" id="XGj-zl-Ojz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -355,7 +358,7 @@
         <!--Terms of Service-->
         <scene sceneID="JtZ-k9-wfN">
             <objects>
-                <viewController id="G1L-Ki-zLH" sceneMemberID="viewController">
+                <viewController id="G1L-Ki-zLH" customClass="TermsOfService" customModule="MESSENGER" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FmX-9O-ZrA"/>
                         <viewControllerLayoutGuide type="bottom" id="rCT-CI-V37"/>
@@ -371,6 +374,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28t-p0-EjD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1118" y="-2464"/>
+        </scene>
+        <!--UserFullNameLabel-->
+        <scene sceneID="xcY-7x-ZXD">
+            <objects>
+                <viewController title="UserFullNameLabel" id="36E-KS-Lhc" customClass="profileImage" customModule="MESSENGER" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BAM-Yy-N4I"/>
+                        <viewControllerLayoutGuide type="bottom" id="qGx-Nw-UgB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XmX-Oc-nPi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTF-J9-1O9">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="4g7-CJ-ffC"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="action" id="c3O-Un-ftR"/>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icondefault.gif" translatesAutoresizingMaskIntoConstraints="NO" id="4Bl-8k-RUv">
+                                <rect key="frame" x="0.0" y="134" width="320" height="320"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="4Bl-8k-RUv" secondAttribute="trailing" id="GDk-FZ-wGa"/>
+                            <constraint firstItem="qGx-Nw-UgB" firstAttribute="top" secondItem="XTF-J9-1O9" secondAttribute="bottom" id="Ial-KM-HVx"/>
+                            <constraint firstAttribute="trailing" secondItem="XTF-J9-1O9" secondAttribute="trailing" id="LO8-kA-ZTS"/>
+                            <constraint firstItem="XTF-J9-1O9" firstAttribute="top" secondItem="4Bl-8k-RUv" secondAttribute="bottom" constant="70" id="WOc-FN-ZXD"/>
+                            <constraint firstItem="4Bl-8k-RUv" firstAttribute="top" secondItem="BAM-Yy-N4I" secondAttribute="bottom" constant="70" id="Xsn-3p-tL4"/>
+                            <constraint firstItem="4Bl-8k-RUv" firstAttribute="leading" secondItem="XmX-Oc-nPi" secondAttribute="leading" id="ZUB-Gi-dvb"/>
+                            <constraint firstItem="XTF-J9-1O9" firstAttribute="leading" secondItem="XmX-Oc-nPi" secondAttribute="leading" id="km5-Al-rnf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="mGg-xD-FXt"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f7n-fW-P5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-661" y="-2464"/>
         </scene>
         <!--Profile-->
         <scene sceneID="iAc-6v-VbD">
@@ -636,7 +682,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="Pgp-gX-voa">
                         <barButtonItem key="backBarButtonItem" title=" " id="vjK-sn-zZ3"/>
-                        <barButtonItem key="rightBarButtonItem" title="Image" id="slP-Nv-SZt"/>
+                        <barButtonItem key="rightBarButtonItem" title="Image" id="slP-Nv-SZt">
+                            <connections>
+                                <segue destination="36E-KS-Lhc" kind="show" animates="NO" id="yFm-xe-FzC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
@@ -802,7 +852,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Sing Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AvP-Nk-liP">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Sign Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AvP-Nk-liP">
                                                     <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -1157,6 +1207,7 @@
         <image name="convo.png" width="24" height="24"/>
         <image name="editImage.png" width="80" height="80"/>
         <image name="favor.png" width="24" height="24"/>
+        <image name="icondefault.gif" width="320" height="320"/>
         <image name="navigation.png" width="22" height="22"/>
         <image name="option.png" width="20" height="20"/>
         <image name="search.png" width="20" height="20"/>
@@ -1164,7 +1215,7 @@
         <image name="team.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VJn-N0-CyK"/>
-        <segue reference="yL2-TZ-vl4"/>
+        <segue reference="RNU-RL-a7S"/>
+        <segue reference="9MV-1u-yQZ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,6 +15,10 @@ class profileImage : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let button =  UIButton(type: .Custom)
+        button.frame = CGRectMake(0, 0, 100, 40) as CGRect
+        button.setTitle("userFullName", forState: UIControlState.Normal)
+        self.navigationItem.titleView = button
     }
-
 }

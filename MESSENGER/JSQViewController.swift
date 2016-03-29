@@ -20,10 +20,16 @@ class JSQViewController: JSQMessagesViewController {
     
     let firebase = Firebase(url: "https://universitymessengerapp.firebaseio.com/JSQNode")
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // CHANGES NAVIGATION TITLE INTO A CLIKABLE BUTTON
+        let button =  UIButton(type: .Custom)
+        button.frame = CGRectMake(0, 0, 100, 40) as CGRect
+        button.setTitle("userFullName", forState: UIControlState.Normal)
+        button.addTarget(self, action: Selector("clickOnButton:"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.navigationItem.titleView = button
+
         print("id:\(senderId) fullName: \(senderDisplayName)")
         //self.senderId = "uidFromFireBase"
         //self.senderDisplayName = "userFullName"
@@ -44,33 +50,59 @@ class JSQViewController: JSQMessagesViewController {
                     self.createAvatar(receiveSenderId, senderDisplayName: receiveDisplayName, color: UIColor.lightGrayColor())
                     let jsqMessage = JSQMessage(senderId: receiveSenderId, senderDisplayName: receiveDisplayName, date:NSDate(timeIntervalSince1970: date) , text: message["message"] as! String)
                     self.messages.append(jsqMessage)
-            }
+                }
                 
-            self.finishReceivingMessageAnimated(true)
+                self.finishReceivingMessageAnimated(true)
                 
             }
         }
         firebase.queryLimitedToLast(1).observeEventType(FEventType.ChildAdded) { (snapshot:FDataSnapshot!) -> Void in
-                self.keys.append(snapshot.key)
-                if let message = snapshot.value as? NSDictionary {
-                    let date = message["date"] as! NSTimeInterval
-                    let receiveSenderId = message["senderId"] as! String
-                    let receiveDisplayName = message["senderDisplayName"] as! String
-                    self.createAvatar(receiveSenderId, senderDisplayName: receiveDisplayName, color: UIColor.jsq_messageBubbleGreenColor())
-
-                    let jsqMessage = JSQMessage(senderId: receiveSenderId, senderDisplayName: receiveDisplayName, date:NSDate(timeIntervalSince1970: date) , text: message["message"] as! String)
-                    self.messages.append(jsqMessage)
-                    if receiveSenderId != self.senderId {
-                        JSQSystemSoundPlayer.jsq_playMessageReceivedSound()
-                    }
-                    
+            self.keys.append(snapshot.key)
+            if let message = snapshot.value as? NSDictionary {
+                let date = message["date"] as! NSTimeInterval
+                let receiveSenderId = message["senderId"] as! String
+                let receiveDisplayName = message["senderDisplayName"] as! String
+                self.createAvatar(receiveSenderId, senderDisplayName: receiveDisplayName, color: UIColor.jsq_messageBubbleGreenColor())
+                
+                let jsqMessage = JSQMessage(senderId: receiveSenderId, senderDisplayName: receiveDisplayName, date:NSDate(timeIntervalSince1970: date) , text: message["message"] as! String)
+                self.messages.append(jsqMessage)
+                if receiveSenderId != self.senderId {
+                    JSQSystemSoundPlayer.jsq_playMessageReceivedSound()
                 }
-            
-            self.finishReceivingMessageAnimated(true)
                 
             }
-
+            
+            self.finishReceivingMessageAnimated(true)
+            
         }
+        
+    }
+    
+    func clickOnButton(button: UIButton) {
+        // Navigation title Alert
+        
+        let actionAlert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let image = UIAlertAction(title: "Report User", style: .Destructive) { (Alert:UIAlertAction) -> Void in
+            print("Report button was pressed")
+        }
+        
+        let block = UIAlertAction(title: "Block", style: .Destructive) { (Alert:UIAlertAction) -> Void in
+            print("Block button was pressed")
+            
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (Alert:UIAlertAction) -> Void in
+            print("Cancel")
+        }
+        
+        actionAlert.addAction(image)
+        
+        actionAlert.addAction(block)
+        actionAlert.addAction(cancel)
+        
+        self.presentViewController(actionAlert, animated: true, completion: nil)
+    }
     
     func createAvatar(senderID: String, senderDisplayName: String, color: UIColor){
         if avatars[senderId] == nil{
@@ -96,7 +128,7 @@ class JSQViewController: JSQMessagesViewController {
         let message = messages[indexPath.row]
         if message.senderId == senderId{
             return outgoingBubble
-    }
+        }
         return incomingBubble
     }
     
@@ -115,8 +147,8 @@ class JSQViewController: JSQMessagesViewController {
             cell.textView?.textColor = UIColor.blackColor()
         }else{
             cell.textView?.textColor = UIColor.whiteColor()
-    }
-    
+        }
+        
         cell.textView?.linkTextAttributes = [NSForegroundColorAttributeName:(cell.textView?.textColor)!]
         
         return cell
@@ -135,6 +167,5 @@ class JSQViewController: JSQMessagesViewController {
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return messages.count
+        }
     }
-    
-}

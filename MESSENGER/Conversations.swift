@@ -10,9 +10,10 @@ import Foundation
 
 
 class Conversations : UITableViewController {
-    
-    @IBAction func signOut(sender: AnyObject) {
+
+    @IBAction func SignOUT(sender: AnyObject) {
         firebase.unauth()
+        
         self.presentViewController(self.alertController!, animated: true, completion: nil)
     }
     let firebase = Firebase(url: "https://universitymessengerapp.firebaseio.com/")
@@ -29,14 +30,17 @@ class Conversations : UITableViewController {
     var passwordReset : UIAlertController?
     var passwordHasReset : UIAlertController?
  
-    
     override func viewDidLoad() {
+        
+        Open.target = self.revealViewController()
+        Open.action = Selector("revealToggle:")
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         passwordHasReset = UIAlertController(title: "Password Reset Successful", message: "We've emailed you a temporary password.", preferredStyle: .Alert)
         let dismiss = UIAlertAction(title: "OK", style: .Cancel) { (action) -> Void in
             print("Ok button was pressed")
+            
             self.presentViewController(self.signInAlert!, animated: true, completion: nil)
             
         }
@@ -62,7 +66,6 @@ class Conversations : UITableViewController {
                 let theTextFields = textFields as [UITextField]
                 let emailTextField = theTextFields[0].text
                 print("\(emailTextField)")
-                
             }
         }
         
@@ -96,11 +99,12 @@ class Conversations : UITableViewController {
                 
                 let passwordTextField = theTextFields[1].text
                 print("\(passwordTextField)")
+                
                 self.firebase.authUser(emailTextField, password: passwordTextField, withCompletionBlock: { (error:NSError!, authData:FAuthData!) -> Void in
                     if error != nil {
                         print(error.localizedDescription)
                     } else {
-                    print("user logged in\(authData.description)")
+                        print("user logged in\(authData.description)")
                     }
                 })
                 
@@ -110,7 +114,7 @@ class Conversations : UITableViewController {
         
         signInAlert?.addAction(alertActionForTextFields)
         
-        emailVerificationAlert = UIAlertController(title: "Email Verification", message: "We've sent you a temporary password. Please check your email and then proceed to log in  ", preferredStyle: .Alert)
+        emailVerificationAlert = UIAlertController(title: "Email Verification", message: "We've sent you a temporary password. Check your email and then proceed to log in.", preferredStyle: .Alert)
         let done = UIAlertAction(title: "Done", style: .Default) { (action) -> Void in
             print("OK button was pressed")
             self.presentViewController(self.signInAlert!, animated: true, completion: nil)
@@ -124,6 +128,7 @@ class Conversations : UITableViewController {
         
         let terms = UIAlertAction(title: "Terms of Service", style: .Default) { (action:UIAlertAction!) -> Void in
             print("terms button was pressed")
+            
             self.performSegueWithIdentifier("goToTerms", sender: self)
             
         }
@@ -148,13 +153,13 @@ class Conversations : UITableViewController {
                 let fullNameTextField = theTextFields[0].text
                 print("\(fullNameTextField)")
                 
-                
                 let emailTextField = theTextFields[1].text
                 print("\(emailTextField)")
                 let domain = emailTextField!.componentsSeparatedByString("@")[1]
                 let univID = "@" + domain
                 print("User univID is \(univID)")
                 let userPassword = "0"
+                print("\(userPassword)")
                 
                 //ADDING NEW USER TO FIREBASE
                 
@@ -167,16 +172,12 @@ class Conversations : UITableViewController {
                         self.fullname = fullNameTextField!
                         self.firebase.childByAppendingPath("users").childByAppendingPath(uid).setValue(["Full Name":self.fullname,"Email":self.userEmail,"UnivID":self.userUnivId])
                         
-                      //  self.retriveUSerName()
-                        
                     })
                 })
             }
         }
         
         newAccountAlert?.addAction(alertActionForTextField)
-        
-        Open.target = self.revealViewController()
         
         alertController = UIAlertController(title: "Hello", message: "What would you like to do?", preferredStyle: .Alert)
         
@@ -188,42 +189,39 @@ class Conversations : UITableViewController {
             print("Sign in button was pressed")
             
             self.presentViewController(self.newAccountAlert!, animated: true, completion: nil)
-            
-            //When Sign up button is pressed
-            //self.performSegueWithIdentifier("goToSignUpVC", sender: self)
+
         }
         alertController?.addAction(signInAction)
         
         alertController?.addAction(signUpAction)
-    }
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "segueJSQ"{
-            if let viewcontroller = segue.destinationViewController as? JSQViewController{
+    
+        }
+    
+        override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+            if segue.identifier == "segueJSQ"{
+                if let viewcontroller = segue.destinationViewController as? JSQViewController{
                 viewcontroller.senderId = self.firebase.authData.uid
                 viewcontroller.senderDisplayName = self.fullname
+                }
             }
         }
-    }
-    
-    func retriveUSerName(){
-        self.firebase.childByAppendingPath("users").childByAppendingPath(firebase.authData.uid).observeSingleEventOfType(.Value) { (snapshot:FDataSnapshot!) -> Void in
+        func retriveUSerName(){
+            self.firebase.childByAppendingPath("users").childByAppendingPath(firebase.authData.uid).observeSingleEventOfType(.Value) { (snapshot:FDataSnapshot!) -> Void in
             self.fullname = (snapshot.value as! NSDictionary)["Full Name"] as! String
+            }
         }
-    }
-
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+        override func viewDidAppear(animated: Bool) {
+            super.viewDidAppear(animated)
         
-        //KEEP USER LOGGED IN
+            //KEEP USER LOGGED IN
         
-        if firebase.authData != nil{
-            self.retriveUSerName()
-        
-        } else{
+            if firebase.authData != nil{
+                self.retriveUSerName()
+            
+                } else{
             
             self.presentViewController(alertController!, animated: true, completion: nil)
+                }
+            }
         }
-    }
-}
 

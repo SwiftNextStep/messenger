@@ -16,6 +16,7 @@ class Settings : UITableViewController {
     
     @IBOutlet var Open: UIBarButtonItem!
     override func viewDidLoad() {
+        
         Open.target = self.revealViewController()
         Open.action = Selector("revealToggle:")
         

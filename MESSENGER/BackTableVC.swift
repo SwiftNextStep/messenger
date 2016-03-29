@@ -10,8 +10,19 @@ import Foundation
 
 class BackTableBV: UITableViewController {
     
+    var cell : UITableViewCell?
+    
+   
+    @IBOutlet var currentUserImage: UIImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let theWidth = view.frame.size.height
+        
+        currentUserImage.center = CGPointMake(theWidth/2, 120)
+        currentUserImage.layer.cornerRadius = currentUserImage.frame.size.width/2
+        currentUserImage.clipsToBounds = true
         
         tableView.tableFooterView = UIView()
         // Removes empty cells in UITable View
@@ -29,7 +40,6 @@ class BackTableBV: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
     }
-
 }
 
 
