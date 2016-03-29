@@ -68,8 +68,6 @@ class Conversations : UITableViewController {
         
         passwordReset?.addAction(alertActionForTextFieldss)
         
-        
-        
         signInAlert = UIAlertController(title: "Sign in", message: "Please enter your email and password.", preferredStyle: .Alert)
         let cancel = UIAlertAction(title: "Reset Password", style: .Default) { (action) -> Void in
             print("Reset password button was pressed")
@@ -142,13 +140,6 @@ class Conversations : UITableViewController {
             textfield.text = ""
         })
         
-        /*newAccountAlert?.addTextFieldWithConfigurationHandler({ (textfield) -> Void in
-            textfield.placeholder = "Password"
-            textfield.text = ""
-            textfield.secureTextEntry = true
-        })*/
-        
-        
         let alertActionForTextField = UIAlertAction(title: "Sign up", style: .Default) { (action) -> Void in
             self.presentViewController(self.emailVerificationAlert!, animated: true, completion: nil)
             
@@ -205,22 +196,7 @@ class Conversations : UITableViewController {
         
         alertController?.addAction(signUpAction)
     }
-    
-       /* alertController?.addTextFieldWithConfigurationHandler({ (textField) -> Void in
-            
-            textField.placeholder = "email"
-        })
-        
-        let alertActionForTextField = UIAlertAction(title: "Next", style: .Default) { (action) -> Void in
-            
-            if let textFields = self.alertController?.textFields {
-                let theTextFields = textFields as [UITextField]
-                let email = theTextFields[0].text
-                print("\(email)")
-            }
-        }
-        alertController?.addAction(alertActionForTextField)
-        }*/
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueJSQ"{
             if let viewcontroller = segue.destinationViewController as? JSQViewController{
@@ -233,9 +209,7 @@ class Conversations : UITableViewController {
     func retriveUSerName(){
         self.firebase.childByAppendingPath("users").childByAppendingPath(firebase.authData.uid).observeSingleEventOfType(.Value) { (snapshot:FDataSnapshot!) -> Void in
             self.fullname = (snapshot.value as! NSDictionary)["Full Name"] as! String
-            
         }
-    
     }
 
     override func viewDidAppear(animated: Bool) {

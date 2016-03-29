@@ -4,27 +4,22 @@
 //
 //  Created by Kayamba Mukanzu on 3/17/16.
 //  Copyright © 2016 Kayamba Mukanzu. All rights reserved.
-//
+
+
+// THIS VC WILL DISPLAY CURRENT USER PROFILE INFO INCLUDING PROFILE IMAGE, FULL NAME, AND UnivId. Tapping on the Edit button (or top right navigation button) will prompt user to edit profile image or edit full name.
 
 import Foundation
 
 class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    
     @IBOutlet var currentUserImage: UIImageView!
    
-    
     var alertController : UIAlertController?
     
     let imagePicker = UIImagePickerController()
     
-  
-    
     @IBAction func action(sender: AnyObject) {
     
-    
-    
-        
         let actionAlert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
         let image = UIAlertAction(title: "Edit Image", style: .Default) { (Alert:UIAlertAction) -> Void in
@@ -54,11 +49,7 @@ class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImageP
         actionAlert.addAction(cancel)
         
         self.presentViewController(actionAlert, animated: true, completion: nil)
-    
     }
-    
-    
-   
     
     @IBOutlet var Open: UIBarButtonItem!
     
@@ -72,25 +63,19 @@ class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImageP
         super.viewDidLoad()
         
         let theWidth = view.frame.size.height
-        
-        
+    
         currentUserImage.center = CGPointMake(theWidth/2, 120)
         currentUserImage.layer.cornerRadius = currentUserImage.frame.size.width/2
         currentUserImage.clipsToBounds = true
         
         //currentUserImage.layer.borderWidth = 1.0
         
-        
         Open.target = self.revealViewController()
         Open.action = Selector("revealToggle:")
         
-      
-        
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        
-        
         
         //EDIT NAME ALERTVIEW CONTROLLER
         
@@ -108,34 +93,14 @@ class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImageP
             //TEXTFIELD.TEXT = currentUser.firstName string
         })
        
-        
         let alertActionForTextField = UIAlertAction(title: "Save", style: .Default) { (action) -> Void in
             
             if let textFields = self.alertController?.textFields {
                 let theTextFields = textFields as [UITextField]
                 let fullNameTextField = theTextFields[0].text
                 print("\(fullNameTextField)")
-                
-                
             }
         }
-        
         alertController?.addAction(alertActionForTextField)
-        
-        
     }
-    
-    //ADD FULL WIDTH SEPERATOR
-    //------------------------------
-    /* override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        
-        
-        cell.preservesSuperviewLayoutMargins = false
-        cell.separatorInset = UIEdgeInsetsZero
-        cell.layoutMargins = UIEdgeInsetsZero
-        
-        return cell
-    }
-    */
 }

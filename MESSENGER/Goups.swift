@@ -4,11 +4,17 @@
 //
 //  Created by Kayamba Mukanzu on 3/27/16.
 //  Copyright © 2016 Kayamba Mukanzu. All rights reserved.
-//
+
+
+// THIS VIEW CONTROLLER WILL DISPLAY GROUPS THAT THE CURRENT USER HAS JOINED. THE OPTIONS BUTTON (OR TOP RIGHT NAV ITEM) PROMPTS THE USER TO SEARCH GROUPS OR CREATE A GROUP.
+
 
 import Foundation
 
 class Groups : UITableViewController {
+    
+    var createGroupAlert : UIAlertController?
+    
     
     @IBAction func Options(sender: AnyObject) {
         
@@ -16,9 +22,11 @@ class Groups : UITableViewController {
         
         let searchGroup = UIAlertAction(title: "Search Groups", style: .Default) { (Alert:UIAlertAction) -> Void in
             print("Search Groups button was pressed")
+            self.performSegueWithIdentifier("goToGroupSearch", sender: self)
         }
         let createGroup = UIAlertAction(title: "Create Group", style: .Default) { (Alert:UIAlertAction) -> Void in
             print("Create Group button was pressed")
+            self.presentViewController(self.createGroupAlert!, animated: true, completion: nil)
         }
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (Alert:UIAlertAction) -> Void in
             print("Cancel")
@@ -28,18 +36,48 @@ class Groups : UITableViewController {
         actionAlert.addAction(cancel)
         
         self.presentViewController(actionAlert, animated: true, completion: nil)
-        
     }
-
+    
     @IBOutlet var Open: UIBarButtonItem!
     
     override func viewDidLoad() {
+        
+        createGroupAlert = UIAlertController(title: "New Group", message: "Give your group a unique name.", preferredStyle: .Alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction!) -> Void in
+            print("Cancel button was pressed")
+        }
+        self.createGroupAlert?.addAction(cancel)
+        
+        createGroupAlert?.addTextFieldWithConfigurationHandler({ (textfield) -> Void in
+            textfield.placeholder = "Group Name"
+            textfield.text = ""
+        })
+        
+        createGroupAlert?.addTextFieldWithConfigurationHandler({ (textfield) -> Void in
+            textfield.placeholder = "Password (Optional)"
+            textfield.text = ""
+            textfield.secureTextEntry = true
+        })
+        
+        //EACH GROUP CREATED IS ASSIGNED A UnivID. groupUnivId = currentUserUnivId
+        
+        let alertActionForTextFields = UIAlertAction(title: "Create", style: .Default) { (action) -> Void in
+            
+            if let textFields = self.createGroupAlert?.textFields {
+                let theTextFields = textFields as [UITextField]
+                let groupNameTextField = theTextFields[0].text
+                print("\(groupNameTextField)")
+                
+                let passwordTextField = theTextFields[1].text
+                print("\(passwordTextField)")
+            }
+        }
+        
+        createGroupAlert?.addAction(alertActionForTextFields)
         
         Open.target = self.revealViewController()
         Open.action = Selector("revealToggle:")
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-    
     }
-    
 }
