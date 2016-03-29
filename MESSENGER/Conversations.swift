@@ -156,6 +156,7 @@ class Conversations : UITableViewController {
                 let univID = "@" + domain
                 print("User univID is \(univID)")
                 let userPassword = "0"
+                print("\(userPassword)")
                 
                 //ADDING NEW USER TO FIREBASE
                 
