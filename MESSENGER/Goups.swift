@@ -5,9 +5,10 @@
 //  Created by Kayamba Mukanzu on 3/27/16.
 //  Copyright © 2016 Kayamba Mukanzu. All rights reserved.
 
+//----------------------------------------------------------------------------
 
 // THIS VIEW CONTROLLER WILL DISPLAY GROUPS THAT THE CURRENT USER HAS JOINED. THE OPTIONS BUTTON (OR TOP RIGHT NAV ITEM) PROMPTS THE USER TO SEARCH GROUPS OR CREATE A GROUP.
-
+// TAPPING ON A CELL WILL OPENS GROUP INFO VIEW CONTROLLER
 
 import Foundation
 

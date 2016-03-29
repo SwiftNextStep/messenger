@@ -4,7 +4,12 @@
 //
 //  Created by Kayamba Mukanzu on 3/25/16.
 //  Copyright © 2016 Kayamba Mukanzu. All rights reserved.
-//
+
+//----------------------------------------------------------------------------
+
+// THIS VC WILL DISPLAY THE CONVERSATION BETWEEEN CURRENT USER AND OTHER USER.
+// THE TOP RIGHT NAV BAR ITEM WILL DISPLAY OTHER USER PROFILE IMAGE. CLICKING IMAGE WILL ENLARGE IMAGE
+// NAV TITLE IS A CLICKABLE BUTTON THAT WILL OPEN AN ACTION ALERT. CURRENT USER CAN REPORT OR BLOCK OTHER USER.
 
 import Foundation
 

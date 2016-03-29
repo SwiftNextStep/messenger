@@ -29,6 +29,11 @@
 		A229E0B01C99DCFC00DB418F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A229E0AF1C99DCFC00DB418F /* Settings.swift */; };
 		A229E0B21C99E27500DB418F /* two-round-overlapping-speech-bubbles.png in Resources */ = {isa = PBXBuildFile; fileRef = A229E0B11C99E27500DB418F /* two-round-overlapping-speech-bubbles.png */; };
 		A229E0B41C99E2D300DB418F /* arrow487.png in Resources */ = {isa = PBXBuildFile; fileRef = A229E0B31C99E2D300DB418F /* arrow487.png */; };
+		A25195471CAB039A0011EE5B /* profileImage50.png in Resources */ = {isa = PBXBuildFile; fileRef = A25195461CAB039A0011EE5B /* profileImage50.png */; };
+		A25195491CAB039E0011EE5B /* profileImage50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A25195481CAB039E0011EE5B /* profileImage50@2x.png */; };
+		A251954B1CAB0E120011EE5B /* GroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251954A1CAB0E120011EE5B /* GroupInfo.swift */; };
+		A251954D1CAB0EBB0011EE5B /* profileImage30.png in Resources */ = {isa = PBXBuildFile; fileRef = A251954C1CAB0EBB0011EE5B /* profileImage30.png */; };
+		A251954F1CAB0EC10011EE5B /* profileImage60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A251954E1CAB0EC10011EE5B /* profileImage60@2x.png */; };
 		A25496171C9E3C8F00046824 /* team.png in Resources */ = {isa = PBXBuildFile; fileRef = A25496161C9E3C8F00046824 /* team.png */; };
 		A25496191C9E3C9500046824 /* team@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A25496181C9E3C9500046824 /* team@2x.png */; };
 		A29D0C611CAA05110072A92A /* TermsOfService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29D0C601CAA05110072A92A /* TermsOfService.swift */; };
@@ -93,6 +98,11 @@
 		A229E0AF1C99DCFC00DB418F /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		A229E0B11C99E27500DB418F /* two-round-overlapping-speech-bubbles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "two-round-overlapping-speech-bubbles.png"; sourceTree = "<group>"; };
 		A229E0B31C99E2D300DB418F /* arrow487.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow487.png; sourceTree = "<group>"; };
+		A25195461CAB039A0011EE5B /* profileImage50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileImage50.png; sourceTree = "<group>"; };
+		A25195481CAB039E0011EE5B /* profileImage50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profileImage50@2x.png"; sourceTree = "<group>"; };
+		A251954A1CAB0E120011EE5B /* GroupInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupInfo.swift; sourceTree = "<group>"; };
+		A251954C1CAB0EBB0011EE5B /* profileImage30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileImage30.png; sourceTree = "<group>"; };
+		A251954E1CAB0EC10011EE5B /* profileImage60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profileImage60@2x.png"; sourceTree = "<group>"; };
 		A25496161C9E3C8F00046824 /* team.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team.png; sourceTree = "<group>"; };
 		A25496181C9E3C9500046824 /* team@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "team@2x.png"; sourceTree = "<group>"; };
 		A29D0C601CAA05110072A92A /* TermsOfService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfService.swift; sourceTree = "<group>"; };
@@ -209,15 +219,20 @@
 				A2CA47A71CA8E13E00C6549D /* groups@2x.png */,
 				A29D0C661CAA4DA60072A92A /* settings.png */,
 				A29D0C681CAA4DAC0072A92A /* settings@2x.png */,
-				A2B7930B1CA5139D004C8115 /* JSQViewController.swift */,
+				A25195461CAB039A0011EE5B /* profileImage50.png */,
+				A25195481CAB039E0011EE5B /* profileImage50@2x.png */,
+				A251954C1CAB0EBB0011EE5B /* profileImage30.png */,
+				A251954E1CAB0EC10011EE5B /* profileImage60@2x.png */,
 				A2B3A0521C96571700A4BB27 /* AppDelegate.swift */,
 				A2B3A0541C96571700A4BB27 /* ViewController.swift */,
 				A2B3A0561C96571700A4BB27 /* Main.storyboard */,
+				A2B7930B1CA5139D004C8115 /* JSQViewController.swift */,
 				A229E08D1C99D74800DB418F /* Conversations.swift */,
 				A229E0A91C99DCD800DB418F /* Favorites.swift */,
 				A204AECD1CA8D2D9004431AF /* Goups.swift */,
 				A229E0AD1C99DCEB00DB418F /* Directory.swift */,
 				A229E0AF1C99DCFC00DB418F /* Settings.swift */,
+				A251954A1CAB0E120011EE5B /* GroupInfo.swift */,
 				A2CA47A31CA8DF1C00C6549D /* SearchGroups.swift */,
 				A2BF1CC51C9C8F6400B8E841 /* profileImage.swift */,
 				A2BF1CA31C9BBE7000B8E841 /* userProfileVC.swift */,
@@ -319,16 +334,20 @@
 				A25496171C9E3C8F00046824 /* team.png in Resources */,
 				A2BF1CB01C9BD05000B8E841 /* anna@2x.png in Resources */,
 				A2F04BE21CA1AF7B009CBE43 /* compose.png in Resources */,
+				A251954F1CAB0EC10011EE5B /* profileImage60@2x.png in Resources */,
 				A2E197F61CA258FC0088A73A /* search@2x.png in Resources */,
 				A2B3A05D1C96571700A4BB27 /* LaunchScreen.storyboard in Resources */,
 				A25496191C9E3C9500046824 /* team@2x.png in Resources */,
 				A2BF1CC01C9BE5A300B8E841 /* option@2x.png in Resources */,
+				A251954D1CAB0EBB0011EE5B /* profileImage30.png in Resources */,
 				A229E0901C99D87F00DB418F /* convo.png in Resources */,
 				A2CA47A61CA8E13900C6549D /* groups.png in Resources */,
 				A2BF1CAA1C9BCFC500B8E841 /* amandabarnes.png in Resources */,
 				A2B3A05A1C96571700A4BB27 /* Assets.xcassets in Resources */,
 				A2BF1CAC1C9BCFCB00B8E841 /* amandabarnes@2x.png in Resources */,
+				A25195471CAB039A0011EE5B /* profileImage50.png in Resources */,
 				A2F04BF01CA1BC09009CBE43 /* brad@2x.png in Resources */,
+				A25195491CAB039E0011EE5B /* profileImage50@2x.png in Resources */,
 				A2BF1CC21C9C69FC00B8E841 /* editImage1.png in Resources */,
 				A229E09C1C99D89C00DB418F /* profileImage@2x.png in Resources */,
 				A229E0A81C99DB4900DB418F /* editImage@2x.png in Resources */,
@@ -423,6 +442,7 @@
 				A2BF1CA41C9BBE7000B8E841 /* userProfileVC.swift in Sources */,
 				A2B7930C1CA5139D004C8115 /* JSQViewController.swift in Sources */,
 				A2B3A0691C966E5F00A4BB27 /* BackTableVC.swift in Sources */,
+				A251954B1CAB0E120011EE5B /* GroupInfo.swift in Sources */,
 				A229E0B01C99DCFC00DB418F /* Settings.swift in Sources */,
 				A204AECE1CA8D2D9004431AF /* Goups.swift in Sources */,
 				A229E0AA1C99DCD800DB418F /* Favorites.swift in Sources */,

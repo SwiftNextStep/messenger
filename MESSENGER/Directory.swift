@@ -5,8 +5,10 @@
 //  Created by Kayamba Mukanzu on 3/16/16.
 //  Copyright © 2016 Kayamba Mukanzu. All rights reserved.
 
+//----------------------------------------------------------------------------
 
-// THIS VIEW CONTROLLER WILL DISPLAY USERS IF currentUserUnivId = otherUserUnivId. For example, if the current user UnidId is @havard.edu, the directory will only display only users with domain equal to @havard.edu
+// THIS VIEW CONTROLLER WILL DISPLAY USERS IF currentUserUnivId = otherUserUnivId. For example, if the current user UnidId is @havard.edu, the directory will only display only users with domain equal to @havard.ed.
+// TAPPING ON A CELL WILL OPENs JSQ VIEW CONTROLLER
 
 import Foundation
 

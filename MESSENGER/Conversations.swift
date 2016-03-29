@@ -4,7 +4,11 @@
 //
 //  Created by Kayamba Mukanzu on 3/16/16.
 //  Copyright © 2016 Kayamba Mukanzu. All rights reserved.
-//
+
+//----------------------------------------------------------------------------
+
+// THIS VC WILL SHOW CONVERSATION BETWEEN CURRENT USER AND OTHER USERS. I'VE LAID OUT A GENERAL LOOK USING A STATIC CELL
+// THE USER WILL ALSO SIGN UP AND SIGN IN ON THIS VC VIA POP-UP UIALERTCONTROLLERS.
 
 import Foundation
 

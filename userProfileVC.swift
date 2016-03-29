@@ -5,6 +5,7 @@
 //  Created by Kayamba Mukanzu on 3/17/16.
 //  Copyright © 2016 Kayamba Mukanzu. All rights reserved.
 
+//----------------------------------------------------------------------------
 
 // THIS VC WILL DISPLAY CURRENT USER PROFILE INFO INCLUDING PROFILE IMAGE, FULL NAME, AND UnivId. Tapping on the Edit button (or top right navigation button) will prompt user to edit profile image or edit full name.
 
