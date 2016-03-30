@@ -15,6 +15,7 @@ import Foundation
 
 class Conversations : UITableViewController {
 
+    @IBOutlet var otherUserImage: UIImageView!
     @IBAction func SignOUT(sender: AnyObject) {
         firebase.unauth()
         
@@ -36,6 +37,9 @@ class Conversations : UITableViewController {
     var passwordHasReset : UIAlertController?
  
     override func viewDidLoad() {
+        
+        otherUserImage.layer.cornerRadius = otherUserImage.frame.size.width/2
+        otherUserImage.clipsToBounds = true
         
         Open.target = self.revealViewController()
         Open.action = Selector("revealToggle:")

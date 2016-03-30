@@ -22,11 +22,11 @@ class BackTableBV: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let theWidth = view.frame.size.height
-        
-        currentUserImage.center = CGPointMake(theWidth/2, 120)
         currentUserImage.layer.cornerRadius = currentUserImage.frame.size.width/2
         currentUserImage.clipsToBounds = true
+        
+        currentUserImage.layer.borderWidth = 1.5;
+        currentUserImage.layer.borderColor = UIColor.whiteColor().CGColor
         
         tableView.tableFooterView = UIView()
         // Removes empty cells in UITable View
