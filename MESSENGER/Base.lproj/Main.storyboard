@@ -453,6 +453,59 @@
                                             <segue destination="CeG-7T-Shl" kind="show" identifier="segueJSQ" id="9MV-1u-yQZ"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="64" id="N6z-Gv-KLm">
+                                        <rect key="frame" x="0.0" y="128" width="320" height="64"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N6z-Gv-KLm" id="M2B-wg-C2X">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="63.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image50.png" translatesAutoresizingMaskIntoConstraints="NO" id="GMx-Ui-kQ1">
+                                                    <rect key="frame" x="15" y="12" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="Vpa-LH-d5j"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User FullName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tv6-vS-kEM">
+                                                    <rect key="frame" x="72" y="10" width="157" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:45 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2m-18-5vX">
+                                                    <rect key="frame" x="212" y="10" width="75" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="75" id="OYG-Ky-dkB"/>
+                                                        <constraint firstAttribute="height" constant="21" id="vSJ-T5-H0U"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Example of unread message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZL-4f-Su8">
+                                                    <rect key="frame" x="72" y="31" width="215" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.57038959700000003" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="D2m-18-5vX" firstAttribute="top" secondItem="M2B-wg-C2X" secondAttribute="topMargin" constant="2" id="1ef-YX-UuO"/>
+                                                <constraint firstItem="8ZL-4f-Su8" firstAttribute="trailing" secondItem="D2m-18-5vX" secondAttribute="trailing" id="BiR-m6-IHc"/>
+                                                <constraint firstItem="GMx-Ui-kQ1" firstAttribute="centerY" secondItem="M2B-wg-C2X" secondAttribute="centerY" id="DTV-8P-RUe"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Tv6-vS-kEM" secondAttribute="trailing" constant="50" id="LAl-OA-5fV"/>
+                                                <constraint firstAttribute="trailing" secondItem="D2m-18-5vX" secondAttribute="trailing" id="Os5-OE-8JG"/>
+                                                <constraint firstItem="D2m-18-5vX" firstAttribute="bottom" secondItem="Tv6-vS-kEM" secondAttribute="bottom" id="RL2-5W-Rm7"/>
+                                                <constraint firstItem="8ZL-4f-Su8" firstAttribute="leading" secondItem="Tv6-vS-kEM" secondAttribute="leading" id="SyV-Qc-Lcg"/>
+                                                <constraint firstItem="8ZL-4f-Su8" firstAttribute="leading" secondItem="GMx-Ui-kQ1" secondAttribute="trailing" constant="17" id="feW-qT-JwS"/>
+                                                <constraint firstItem="GMx-Ui-kQ1" firstAttribute="top" secondItem="M2B-wg-C2X" secondAttribute="topMargin" constant="4" id="gno-Ay-grG"/>
+                                                <constraint firstItem="D2m-18-5vX" firstAttribute="top" secondItem="Tv6-vS-kEM" secondAttribute="top" id="kEo-T2-HqW"/>
+                                                <constraint firstItem="GMx-Ui-kQ1" firstAttribute="leading" secondItem="M2B-wg-C2X" secondAttribute="leadingMargin" constant="7" id="kWd-om-cD9"/>
+                                                <constraint firstItem="8ZL-4f-Su8" firstAttribute="bottom" secondItem="GMx-Ui-kQ1" secondAttribute="bottom" id="nfn-QI-IEa"/>
+                                                <constraint firstItem="8ZL-4f-Su8" firstAttribute="top" secondItem="D2m-18-5vX" secondAttribute="bottom" id="ru1-hb-oxp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -474,6 +527,7 @@
                     <connections>
                         <outlet property="Open" destination="JRB-1c-cNr" id="0k2-qd-nDe"/>
                         <outlet property="otherUserImage" destination="q3G-F4-7ab" id="Tj1-FZ-spR"/>
+                        <outlet property="unreadMessage" destination="GMx-Ui-kQ1" id="Nsw-gd-NYt"/>
                         <segue destination="G1L-Ki-zLH" kind="show" identifier="goToTerms" id="RNU-RL-a7S"/>
                     </connections>
                 </tableViewController>

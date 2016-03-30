@@ -18,6 +18,7 @@ import Foundation
 
 class Conversations : UITableViewController {
 
+    @IBOutlet var unreadMessage: UIImageView!
     @IBOutlet var otherUserImage: UIImageView!
     @IBAction func SignOUT(sender: AnyObject) {
         firebase.unauth()
@@ -32,6 +33,10 @@ class Conversations : UITableViewController {
         
         otherUserImage.layer.cornerRadius = otherUserImage.frame.size.width/2
         otherUserImage.clipsToBounds = true
+        
+        //EXAMPLE OF UNREAD MESSAGE
+        unreadMessage.layer.cornerRadius = otherUserImage.frame.size.width/2
+        unreadMessage.clipsToBounds = true
 
         Open.target = self.revealViewController()
         Open.action = Selector("revealToggle:")
