@@ -7,9 +7,12 @@
 
 //----------------------------------------------------------------------------
 
+// I DON'T FULLY UNDERSTAND HOW TO CONNECT THE JSQ VC. WHAT I WOULD LIKE TO ACHIEVE.. TAPPING ON A CELL IN THE FOLLOWING VIEW CONTROLLERS WILL OPEN JSQ VIEW CONTROLLER: Conversations, Favorites, Directory, and Groupinfo.
+
 // THIS VC WILL DISPLAY THE CONVERSATION BETWEEEN CURRENT USER AND OTHER USER.
-// THE TOP RIGHT NAV BAR ITEM WILL DISPLAY OTHER USER PROFILE IMAGE. CLICKING IMAGE WILL ENLARGE IMAGE
+// THE TOP RIGHT NAV BAR ITEM WILL DISPLAY OTHER USER AVATAR IMAGE. CLICKING IMAGE WILL ENLARGE IT
 // NAV TITLE IS A CLICKABLE BUTTON THAT WILL OPEN AN ACTION ALERT. CURRENT USER CAN REPORT OR BLOCK OTHER USER.
+// 
 
 import Foundation
 
@@ -38,7 +41,7 @@ class JSQViewController: JSQMessagesViewController {
         print("id:\(senderId) fullName: \(senderDisplayName)")
         
         let bubbleFactory = JSQMessagesBubbleImageFactory()
-        incomingBubble = bubbleFactory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleBlueColor())
+        incomingBubble = bubbleFactory.incomingMessagesBubbleImageWithColor(UIColor.grayColor())
         outgoingBubble = bubbleFactory.outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
         
         createAvatar(senderId, senderDisplayName: senderDisplayName, color: UIColor.lightGrayColor())

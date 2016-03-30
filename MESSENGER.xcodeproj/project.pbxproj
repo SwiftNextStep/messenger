@@ -43,6 +43,9 @@
 		A251955D1CAB7FCE0011EE5B /* image50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A251955C1CAB7FCE0011EE5B /* image50@2x.png */; };
 		A251955F1CAB866F0011EE5B /* image30.png in Resources */ = {isa = PBXBuildFile; fileRef = A251955E1CAB866F0011EE5B /* image30.png */; };
 		A25195611CAB86750011EE5B /* image30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A25195601CAB86750011EE5B /* image30@2x.png */; };
+		A25195631CABB1560011EE5B /* auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25195621CABB1560011EE5B /* auth.swift */; };
+		A25195651CABBD600011EE5B /* image40.png in Resources */ = {isa = PBXBuildFile; fileRef = A25195641CABBD600011EE5B /* image40.png */; };
+		A25195671CABBD650011EE5B /* image40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A25195661CABBD650011EE5B /* image40@2x.png */; };
 		A25496171C9E3C8F00046824 /* team.png in Resources */ = {isa = PBXBuildFile; fileRef = A25496161C9E3C8F00046824 /* team.png */; };
 		A25496191C9E3C9500046824 /* team@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A25496181C9E3C9500046824 /* team@2x.png */; };
 		A29D0C611CAA05110072A92A /* TermsOfService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29D0C601CAA05110072A92A /* TermsOfService.swift */; };
@@ -121,6 +124,9 @@
 		A251955C1CAB7FCE0011EE5B /* image50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image50@2x.png"; sourceTree = "<group>"; };
 		A251955E1CAB866F0011EE5B /* image30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image30.png; sourceTree = "<group>"; };
 		A25195601CAB86750011EE5B /* image30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image30@2x.png"; sourceTree = "<group>"; };
+		A25195621CABB1560011EE5B /* auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = auth.swift; sourceTree = "<group>"; };
+		A25195641CABBD600011EE5B /* image40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image40.png; sourceTree = "<group>"; };
+		A25195661CABBD650011EE5B /* image40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image40@2x.png"; sourceTree = "<group>"; };
 		A25496161C9E3C8F00046824 /* team.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team.png; sourceTree = "<group>"; };
 		A25496181C9E3C9500046824 /* team@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "team@2x.png"; sourceTree = "<group>"; };
 		A29D0C601CAA05110072A92A /* TermsOfService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfService.swift; sourceTree = "<group>"; };
@@ -249,9 +255,12 @@
 				A251955C1CAB7FCE0011EE5B /* image50@2x.png */,
 				A251955E1CAB866F0011EE5B /* image30.png */,
 				A25195601CAB86750011EE5B /* image30@2x.png */,
+				A25195641CABBD600011EE5B /* image40.png */,
+				A25195661CABBD650011EE5B /* image40@2x.png */,
 				A2B3A0521C96571700A4BB27 /* AppDelegate.swift */,
 				A2B3A0541C96571700A4BB27 /* ViewController.swift */,
 				A2B3A0561C96571700A4BB27 /* Main.storyboard */,
+				A25195621CABB1560011EE5B /* auth.swift */,
 				A2B7930B1CA5139D004C8115 /* JSQViewController.swift */,
 				A229E08D1C99D74800DB418F /* Conversations.swift */,
 				A229E0A91C99DCD800DB418F /* Favorites.swift */,
@@ -364,6 +373,7 @@
 				A2F04BE21CA1AF7B009CBE43 /* compose.png in Resources */,
 				A25195611CAB86750011EE5B /* image30@2x.png in Resources */,
 				A251954F1CAB0EC10011EE5B /* profileImage60@2x.png in Resources */,
+				A25195651CABBD600011EE5B /* image40.png in Resources */,
 				A2E197F61CA258FC0088A73A /* search@2x.png in Resources */,
 				A25195571CAB7E9F0011EE5B /* image80.png in Resources */,
 				A2B3A05D1C96571700A4BB27 /* LaunchScreen.storyboard in Resources */,
@@ -374,6 +384,7 @@
 				A2CA47A61CA8E13900C6549D /* groups.png in Resources */,
 				A2BF1CAA1C9BCFC500B8E841 /* amandabarnes.png in Resources */,
 				A2B3A05A1C96571700A4BB27 /* Assets.xcassets in Resources */,
+				A25195671CABBD650011EE5B /* image40@2x.png in Resources */,
 				A251955F1CAB866F0011EE5B /* image30.png in Resources */,
 				A2BF1CAC1C9BCFCB00B8E841 /* amandabarnes@2x.png in Resources */,
 				A25195471CAB039A0011EE5B /* profileImage50.png in Resources */,
@@ -473,6 +484,7 @@
 				A2BF1CC61C9C8F6400B8E841 /* profileImage.swift in Sources */,
 				A2B3A0551C96571700A4BB27 /* ViewController.swift in Sources */,
 				A2CA47A41CA8DF1C00C6549D /* SearchGroups.swift in Sources */,
+				A25195631CABB1560011EE5B /* auth.swift in Sources */,
 				A2B3A0531C96571700A4BB27 /* AppDelegate.swift in Sources */,
 				A25195511CAB240C0011EE5B /* Support.swift in Sources */,
 				A2BF1CA41C9BBE7000B8E841 /* userProfileVC.swift in Sources */,
