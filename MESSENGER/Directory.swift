@@ -7,8 +7,15 @@
 
 //----------------------------------------------------------------------------
 
-// THIS VIEW CONTROLLER WILL DISPLAY USERS IF currentUserUnivId = otherUserUnivId. For example, if the current user UnidId is @havard.edu, the directory will only display only users with domain equal to @havard.ed.
+// THIS VIEW CONTROLLER WILL DISPLAY USERS IF currentUserUnivId = otherUserUnivId. For example, if the current user UnivdId is @havard.edu, the directory will only display only users with domain equal to @havard.ed.
 // TAPPING ON A CELL WILL OPENs JSQ VIEW CONTROLLER
+
+// UnivID is created in the Auth view controller using the following code.             
+// let domain = emailTextField!.componentsSeparatedByString("@")[1]
+// let univID = "@" + domain
+
+
+
 
 import Foundation
 
