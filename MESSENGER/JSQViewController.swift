@@ -85,7 +85,7 @@ class JSQViewController: JSQMessagesViewController {
     }
     
     func clickOnButton(button: UIButton) {
-        // Navigation title Alert
+        // NAVIGATION TITLE ALERT
         
         let actionAlert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         

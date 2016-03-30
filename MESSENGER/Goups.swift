@@ -14,7 +14,12 @@ import Foundation
 
 class Groups : UITableViewController {
     
+    let firebase = Firebase(url: "https://universitymessengerapp.firebaseio.com/")
+    
     var createGroupAlert : UIAlertController?
+    
+    var currentUser = "current user"
+    var currenUserUnivId = "userUnivId"
     
     
     @IBAction func Options(sender: AnyObject) {
@@ -71,6 +76,7 @@ class Groups : UITableViewController {
                 
                 let passwordTextField = theTextFields[1].text
                 print("\(passwordTextField)")
+                 
             }
         }
         
