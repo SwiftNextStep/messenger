@@ -105,7 +105,7 @@ override func viewDidLoad() {
     signInAlert?.addAction(alertActionForTextFields)
     
     emailVerificationAlert = UIAlertController(title: "Email Verification", message: "We've sent you a temporary password. Check your email and then proceed to log in.", preferredStyle: .Alert)
-    let done = UIAlertAction(title: "Done", style: .Default) { (action) -> Void in
+    let done = UIAlertAction(title: "OK", style: .Default) { (action) -> Void in
         print("OK button was pressed")
         self.presentViewController(self.signInAlert!, animated: true, completion: nil)
     }

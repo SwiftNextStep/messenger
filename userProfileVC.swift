@@ -14,8 +14,15 @@ import Foundation
 class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet var currentUserImage: UIImageView!
-   
+    @IBOutlet var userFullName: UILabel!
+    @IBOutlet var userUnivId: UILabel!
+    
+    var fullName = String()
+    var univID = String()
+    
     var alertController : UIAlertController?
+    
+    var firebase = Firebase(url: "https://universitymessengerapp.firebaseio.com")
     
     let imagePicker = UIImagePickerController()
     
@@ -63,13 +70,21 @@ class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImageP
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.userFullName.text = fullName
+        self.userUnivId.text = univID
+        
+        self.firebase.childByAppendingPath("users").childByAppendingPath(self.firebase.authData.uid).observeSingleEventOfType(FEventType.Value) { (snapshot:FDataSnapshot!) -> Void in
+            self.fullName = (snapshot.value as! NSDictionary)["Full Name"] as! String
+            print(self.fullName)
+            self.univID = (snapshot.value as! NSDictionary)["UnivID"] as! String
+            print(self.univID)
+        }
+        
         currentUserImage.layer.cornerRadius = currentUserImage.frame.size.width/2
         currentUserImage.clipsToBounds = true
         
         currentUserImage.layer.borderWidth = 2.0;
         currentUserImage.layer.borderColor = UIColor.whiteColor().CGColor
-        
-        //currentUserImage.layer.borderWidth = 1.0
         
         Open.target = self.revealViewController()
         Open.action = Selector("revealToggle:")

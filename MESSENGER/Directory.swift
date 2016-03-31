@@ -29,6 +29,7 @@ class Directory : UITableViewController {
         self.directory.observeEventType(FEventType.ChildAdded, withBlock: { snapshot in
             print(snapshot.value.objectForKey("Full Name"))
             print(snapshot.value.objectForKey("UnivID"))
+    
             
         })
 

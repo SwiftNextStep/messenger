@@ -84,13 +84,12 @@ class Groups : UITableViewController {
                 self.groupPassword = passwordTextField!
                 
                 
-                self.firebase.childByAppendingPath("Groups").childByAutoId().setValue(["Group Name":self.groupName, "Group Password":self.groupPassword, "Creator": self.firebase.authData.uid])
+                self.firebase.childByAppendingPath("Groups").childByAutoId().setValue(["Group Name":self.groupName, "Group Password":self.groupPassword, "Creator": self.firebase.authData.uid, "UnivID":self.univID])
                 
-                self.userUnivId.observeEventType(FEventType.ChildAdded, withBlock: { snapshot in
-                    print(snapshot.value.objectForKey("Full Name"))
-                    
+                self.firebase.childByAppendingPath("users").childByAppendingPath(self.firebase.authData.uid).observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot:FDataSnapshot!) -> Void in
+                    self.univID = (snapshot.value as! NSDictionary)["UnivID"] as! String
+                    print(self.univID)
                 })
-                
             }
         }
         
