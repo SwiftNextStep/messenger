@@ -15,11 +15,14 @@ import Foundation
 class Groups : UITableViewController {
     
     let firebase = Firebase(url: "https://universitymessengerapp.firebaseio.com/")
+    let userUnivId = Firebase(url: "https://universitymessengerapp.firebaseio.com/users")
     
     var createGroupAlert : UIAlertController?
     
-    var currentUser = "current user"
-    var currenUserUnivId = "userUnivId"
+    var univID = String()
+    var groupName = String()
+    var groupPassword = String()
+    var fullName = String()
     
     
     @IBAction func Options(sender: AnyObject) {
@@ -76,7 +79,18 @@ class Groups : UITableViewController {
                 
                 let passwordTextField = theTextFields[1].text
                 print("\(passwordTextField)")
-                 
+                
+                self.groupName = groupNameTextField!
+                self.groupPassword = passwordTextField!
+                
+                
+                self.firebase.childByAppendingPath("Groups").childByAutoId().setValue(["Group Name":self.groupName, "Group Password":self.groupPassword, "Creator": self.firebase.authData.uid])
+                
+                self.userUnivId.observeEventType(FEventType.ChildAdded, withBlock: { snapshot in
+                    print(snapshot.value.objectForKey("Full Name"))
+                    
+                })
+                
             }
         }
         
@@ -87,4 +101,20 @@ class Groups : UITableViewController {
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
+    
+    
 }
+
+/*func retriveUSerName(){
+self.firebase.childByAppendingPath("users").childByAppendingPath(firebase.authData.uid).observeSingleEventOfType(.Value) { (snapshot:FDataSnapshot!) -> Void in
+self.fullname = (snapshot.value as! NSDictionary)["Full Name"] as! String
+}
+}
+
+
+
+
+
+
+
+*/

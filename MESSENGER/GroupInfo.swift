@@ -23,17 +23,13 @@ class GroupInfo : UITableViewController {
         let actionAlert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
         let joinGroup = UIAlertAction(title: "Join Group", style: .Default) { (Alert:UIAlertAction) -> Void in
-            print("Search Groups button was pressed")
-            self.performSegueWithIdentifier("goToGroupSearch", sender: self)
-        }
-        let reportGroup = UIAlertAction(title: "Report", style: .Destructive) { (Alert:UIAlertAction) -> Void in
-            print("Report button was pressed")
+            print("Join Group button was pressed")
+        
         }
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (Alert:UIAlertAction) -> Void in
             print("Cancel")
         }
         actionAlert.addAction(joinGroup)
-        actionAlert.addAction(reportGroup)
         actionAlert.addAction(cancel)
         
         self.presentViewController(actionAlert, animated: true, completion: nil)

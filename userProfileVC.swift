@@ -66,7 +66,7 @@ class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImageP
         currentUserImage.layer.cornerRadius = currentUserImage.frame.size.width/2
         currentUserImage.clipsToBounds = true
         
-        currentUserImage.layer.borderWidth = 1.5;
+        currentUserImage.layer.borderWidth = 2.0;
         currentUserImage.layer.borderColor = UIColor.whiteColor().CGColor
         
         //currentUserImage.layer.borderWidth = 1.0

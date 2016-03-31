@@ -15,19 +15,26 @@
 // let univID = "@" + domain
 
 
-
-
 import Foundation
 
 class Directory : UITableViewController {
     
+    var directory = Firebase(url: "https://universitymessengerapp.firebaseio.com/users")
+    
     @IBOutlet var Open: UIBarButtonItem!
 
-        override func viewDidLoad() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.directory.observeEventType(FEventType.ChildAdded, withBlock: { snapshot in
+            print(snapshot.value.objectForKey("Full Name"))
+            print(snapshot.value.objectForKey("UnivID"))
             
-            Open.target = self.revealViewController()
-            Open.action = Selector("revealToggle:")
+        })
+
+        Open.target = self.revealViewController()
+        Open.action = Selector("revealToggle:")
             
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    }
 }

@@ -38,13 +38,16 @@ class JSQViewController: JSQMessagesViewController {
         button.addTarget(self, action: Selector("clickOnButton:"), forControlEvents: UIControlEvents.TouchUpInside)
         self.navigationItem.titleView = button
 
-        print("id:\(senderId) fullName: \(senderDisplayName)")
+        //print("id:\(senderId) fullName: \(senderDisplayName)")
+        self.senderId = "sender"
+        self.senderDisplayName = "Sender from firebase"
         
         let bubbleFactory = JSQMessagesBubbleImageFactory()
         incomingBubble = bubbleFactory.incomingMessagesBubbleImageWithColor(UIColor.grayColor())
         outgoingBubble = bubbleFactory.outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
         
         createAvatar(senderId, senderDisplayName: senderDisplayName, color: UIColor.lightGrayColor())
+        
         firebase.queryLimitedToLast(50).observeSingleEventOfType(FEventType.Value) { (snapshot:FDataSnapshot!) -> Void in
             let values = snapshot.value
             for value in values as! NSDictionary {
@@ -58,7 +61,7 @@ class JSQViewController: JSQMessagesViewController {
                     self.messages.append(jsqMessage)
                 }
                 
-                self.finishReceivingMessageAnimated(true)
+                self.finishSendingMessageAnimated(true)
                 
             }
         }
@@ -75,13 +78,10 @@ class JSQViewController: JSQMessagesViewController {
                 if receiveSenderId != self.senderId {
                     JSQSystemSoundPlayer.jsq_playMessageReceivedSound()
                 }
-                
             }
             
             self.finishReceivingMessageAnimated(true)
-            
         }
-        
     }
     
     func clickOnButton(button: UIButton) {
@@ -89,20 +89,13 @@ class JSQViewController: JSQMessagesViewController {
         
         let actionAlert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
-        let image = UIAlertAction(title: "Report User", style: .Destructive) { (Alert:UIAlertAction) -> Void in
-            print("Report button was pressed")
-        }
-        
         let block = UIAlertAction(title: "Block", style: .Destructive) { (Alert:UIAlertAction) -> Void in
             print("Block button was pressed")
-            
         }
         
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (Alert:UIAlertAction) -> Void in
             print("Cancel")
         }
-        
-        actionAlert.addAction(image)
         
         actionAlert.addAction(block)
         actionAlert.addAction(cancel)
@@ -158,7 +151,6 @@ class JSQViewController: JSQMessagesViewController {
         cell.textView?.linkTextAttributes = [NSForegroundColorAttributeName:(cell.textView?.textColor)!]
         
         return cell
-        
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
