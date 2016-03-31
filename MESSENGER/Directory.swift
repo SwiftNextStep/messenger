@@ -22,6 +22,7 @@ class Directory : UITableViewController {
     var directory = Firebase(url: "https://universitymessengerapp.firebaseio.com/users")
     
     @IBOutlet var Open: UIBarButtonItem!
+    @IBOutlet var searchBar: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +30,6 @@ class Directory : UITableViewController {
         self.directory.observeEventType(FEventType.ChildAdded, withBlock: { snapshot in
             print(snapshot.value.objectForKey("Full Name"))
             print(snapshot.value.objectForKey("UnivID"))
-    
-            
         })
 
         Open.target = self.revealViewController()

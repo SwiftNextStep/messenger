@@ -100,6 +100,13 @@ class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImageP
                     let theTextFields = textFields as [UITextField]
                     let fullNameTextField = theTextFields[0].text
                     print("\(fullNameTextField)")
+                    
+                    //CHILD CHANGED
+                    
+                    //self.firebase.observeEventType(FEventType.ChildChanged, withBlock: { snapshot in
+                        //let full = snapshot.value.objectForKey("Full Name") as? String
+                    //})
+                    
                 }
             }
             self.alertController?.addAction(alertActionForTextField)
@@ -108,8 +115,8 @@ class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImageP
         currentUserImage.layer.cornerRadius = currentUserImage.frame.size.width/2
         currentUserImage.clipsToBounds = true
         
-        currentUserImage.layer.borderWidth = 2.0;
-        currentUserImage.layer.borderColor = UIColor.whiteColor().CGColor
+        //currentUserImage.layer.borderWidth = 2.0;
+        //currentUserImage.layer.borderColor = UIColor.grayColor().CGColor
         
         Open.target = self.revealViewController()
         Open.action = Selector("revealToggle:")

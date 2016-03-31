@@ -24,13 +24,13 @@ class Groups : UITableViewController {
     var groupPassword = String()
     var fullName = String()
     
-    
     @IBAction func Options(sender: AnyObject) {
         
         let actionAlert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
         let searchGroup = UIAlertAction(title: "Search Groups", style: .Default) { (Alert:UIAlertAction) -> Void in
             print("Search Groups button was pressed")
+            
             self.performSegueWithIdentifier("goToGroupSearch", sender: self)
         }
         let createGroup = UIAlertAction(title: "Create Group", style: .Default) { (Alert:UIAlertAction) -> Void in
@@ -83,12 +83,11 @@ class Groups : UITableViewController {
                 self.groupName = groupNameTextField!
                 self.groupPassword = passwordTextField!
                 
-                
-                self.firebase.childByAppendingPath("Groups").childByAutoId().setValue(["Group Name":self.groupName, "Group Password":self.groupPassword, "Creator": self.firebase.authData.uid, "UnivID":self.univID])
-                
                 self.firebase.childByAppendingPath("users").childByAppendingPath(self.firebase.authData.uid).observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot:FDataSnapshot!) -> Void in
                     self.univID = (snapshot.value as! NSDictionary)["UnivID"] as! String
                     print(self.univID)
+                    
+                 self.firebase.childByAppendingPath("Groups").childByAutoId().setValue(["Group Name":self.groupName, "Group Password":self.groupPassword, "Creator": self.firebase.authData.uid, "UnivID":self.univID])
                 })
             }
         }
@@ -100,20 +99,4 @@ class Groups : UITableViewController {
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
-    
-    
 }
-
-/*func retriveUSerName(){
-self.firebase.childByAppendingPath("users").childByAppendingPath(firebase.authData.uid).observeSingleEventOfType(.Value) { (snapshot:FDataSnapshot!) -> Void in
-self.fullname = (snapshot.value as! NSDictionary)["Full Name"] as! String
-}
-}
-
-
-
-
-
-
-
-*/
