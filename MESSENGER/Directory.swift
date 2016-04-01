@@ -19,37 +19,19 @@ import Foundation
 
 class Directory : UITableViewController {
     
-    var firebase : Firebase!
-    
-    var items = [FDataSnapshot]()
-    
-    var fullName = String()
-    
     @IBOutlet var Open: UIBarButtonItem!
     @IBOutlet var searchBar: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        firebase = Firebase(url: "https://universitymessengerapp.firebaseio.com/users")
-        
 
         Open.target = self.revealViewController()
         Open.action = Selector("revealToggle:")
             
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-}
+    }
 
 }
-
-
-
-
-
-
-
-
-
 
 
 

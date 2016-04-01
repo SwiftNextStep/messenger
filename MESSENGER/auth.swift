@@ -158,11 +158,7 @@ override func viewDidLoad() {
             print("User univID is \(univID)")
             let userPassword = "0"
             print("\(userPassword)")
-            
-            
-            
-            
-            
+
             //ADDING NEW USER TO FIREBASE
             
             self.firebase.createUser(emailTextField, password: userPassword, withCompletionBlock: { (error:NSError!) -> Void in

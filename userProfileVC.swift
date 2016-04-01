@@ -22,7 +22,7 @@ class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImageP
     
     var alertController : UIAlertController?
     
-    var firebase = Firebase(url: "https://universitymessengerapp.firebaseio.com")
+    var firebase = Firebase(url: "https://universitymessengerapp.firebaseio.com/Universities")
     
     let imagePicker = UIImagePickerController()
     
@@ -70,7 +70,7 @@ class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImageP
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*self.firebase.childByAppendingPath("Universities").childByAppendingPath(self.firebase.authData.uid).observeSingleEventOfType(FEventType.Value) { (snapshot:FDataSnapshot!) -> Void in
+        /*self.firebase.childByAppendingPath("Universities").childByAppendingPath("depaul").childByAppendingPath(self.firebase.authData.uid).observeSingleEventOfType(FEventType.Value) { (snapshot:FDataSnapshot!) -> Void in
             self.fullName = (snapshot.value as! NSDictionary)["Full Name"] as! String
             print(self.fullName)
             self.univID = (snapshot.value as! NSDictionary)["UnivID"] as! String
@@ -91,6 +91,7 @@ class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImageP
                 textfield.placeholder = "Full Name"
                 textfield.autocapitalizationType = UITextAutocapitalizationType.Words
                 textfield.text = "\(self.fullName)"
+                
                 //TEXTFIELD.TEXT = currentUser.firstName string
             })
             
@@ -110,7 +111,7 @@ class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImageP
                 }
             }
             self.alertController?.addAction(alertActionForTextField)
-       // }
+       //}
         
         currentUserImage.layer.cornerRadius = currentUserImage.frame.size.width/2
         currentUserImage.clipsToBounds = true

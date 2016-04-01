@@ -7,23 +7,23 @@
 
 //----------------------------------------------------------------------------
 
-// THIS VIEW CONTROLLER WILL DISPLAY GROUPS THAT THE CURRENT USER HAS JOINED. THE OPTIONS BUTTON (OR TOP RIGHT NAV ITEM) PROMPTS THE USER TO SEARCH GROUPS OR CREATE A GROUP.
+// THIS VIEW CONTROLLER WILL DISPLAY GROUP users under from firebase Universities nodes
 // TAPPING ON A CELL WILL OPENS GROUP INFO VIEW CONTROLLER
 
 import Foundation
 
 class Groups : UITableViewController {
     
-    let firebase = Firebase(url: "https://universitymessengerapp.firebaseio.com/")
+    //let firebase = Firebase(url: "https://universitymessengerapp.firebaseio.com/")
     
-    var createGroupAlert : UIAlertController?
+    //var createGroupAlert : UIAlertController?
     
-    var univID = String()
+    /*var univID = String()
     var groupName = String()
     var groupPassword = String()
     var fullName = String()
     
-    /*@IBAction func Options(sender: AnyObject) {
+    @IBAction func Options(sender: AnyObject) {
         
         let actionAlert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
@@ -50,7 +50,7 @@ class Groups : UITableViewController {
     
     override func viewDidLoad() {
         
-        createGroupAlert = UIAlertController(title: "New Group", message: "Give your group a unique name.", preferredStyle: .Alert)
+        /*createGroupAlert = UIAlertController(title: "New Group", message: "Give your group a unique name.", preferredStyle: .Alert)
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction!) -> Void in
             print("Cancel button was pressed")
         }
@@ -91,7 +91,7 @@ class Groups : UITableViewController {
             }
         }
         
-        createGroupAlert?.addAction(alertActionForTextFields)
+        createGroupAlert?.addAction(alertActionForTextFields)*/
         
         Open.target = self.revealViewController()
         Open.action = Selector("revealToggle:")
