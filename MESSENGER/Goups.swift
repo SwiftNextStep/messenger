@@ -15,7 +15,6 @@ import Foundation
 class Groups : UITableViewController {
     
     let firebase = Firebase(url: "https://universitymessengerapp.firebaseio.com/")
-    let userUnivId = Firebase(url: "https://universitymessengerapp.firebaseio.com/users")
     
     var createGroupAlert : UIAlertController?
     
