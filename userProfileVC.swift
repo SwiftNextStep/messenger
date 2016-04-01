@@ -117,8 +117,8 @@ class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImageP
         currentUserImage.layer.cornerRadius = currentUserImage.frame.size.width/2
         currentUserImage.clipsToBounds = true
         
-        //currentUserImage.layer.borderWidth = 2.0;
-        //currentUserImage.layer.borderColor = UIColor.grayColor().CGColor
+        currentUserImage.layer.borderWidth = 1.0;
+        currentUserImage.layer.borderColor = UIColor.whiteColor().CGColor
         
         Open.target = self.revealViewController()
         Open.action = Selector("revealToggle:")

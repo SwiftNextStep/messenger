@@ -25,6 +25,8 @@ class BackTableBV: UITableViewController {
     @IBOutlet var userFullName: UILabel!
     @IBOutlet var userUnivId: UILabel!
     @IBOutlet var unreadMessageCount: UILabel!
+    
+    var recievedString : String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +44,7 @@ class BackTableBV: UITableViewController {
         currentUserImage.layer.cornerRadius = currentUserImage.frame.size.width/2
         currentUserImage.clipsToBounds = true
         
-        currentUserImage.layer.borderWidth = 2.0;
+        currentUserImage.layer.borderWidth = 1.0;
         currentUserImage.layer.borderColor = UIColor.whiteColor().CGColor
         
         tableView.tableFooterView = UIView()

@@ -32,6 +32,9 @@ func getMainPart2(s: String) -> String {
         return (v!.last)!
     }
     
+    struct globalVariable {
+        static var mystring = String()
+    }
 
 override func viewDidLoad() {
     
@@ -153,8 +156,6 @@ override func viewDidLoad() {
             
             let emailTextField = theTextFields[1].text
             print("\(emailTextField)")
-            //let domain = emailTextField!.componentsSeparatedByString("@")[1]
-            //let univID = "@" + domain
             let university = self.getMainPart2(emailTextField!)
             let univID = "@" + university + ".edu"
             print("User univID is \(univID)")
@@ -171,7 +172,7 @@ override func viewDidLoad() {
                     self.userUnivId = univID
                     self.userEmail = emailTextField!
                     self.fullname = fullNameTextField!
-                    self.firebase.childByAppendingPath("Universities").childByAppendingPath(university).childByAppendingPath("Users").childByAppendingPath(uid).setValue(["Full Name":self.fullname,"Email":self.userEmail,"UnivID":self.userUnivId])
+                    self.firebase.childByAppendingPath("Universities").childByAppendingPath(self.universityName).childByAppendingPath("Users").childByAppendingPath(uid).setValue(["Full Name":self.fullname,"Email":self.userEmail,"UnivID":self.userUnivId])
                     
                 })
             })
@@ -211,6 +212,7 @@ func retriveUSerName(){
         self.fullname = (snapshot.value as! NSDictionary)["Full Name"] as! String
     }
 }
+    
 override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
