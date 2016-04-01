@@ -38,24 +38,9 @@ class Directory : UITableViewController {
         Open.action = Selector("revealToggle:")
             
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        self.firebase.observeEventType(FEventType.ChildAdded, withBlock: { snapshot in
-            
-            self.fullName = (snapshot.value as! NSDictionary)["Full Name"] as! String
-            print(self.fullName)
-            
-            self.tableView.reloadData()
-            
-        })
-        
-        }
-    }
+}
 
-
+}
 
 
 

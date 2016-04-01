@@ -14,6 +14,7 @@ var userEmail = String()
 var userUnivId = String()
 var fullname = String()
 var passWord = String()
+var universityName = String()
 
 var alertController : UIAlertController?
 var newAccountAlert : UIAlertController?
@@ -22,6 +23,13 @@ var signInAlert : UIAlertController?
 var resetPasswordAlert : UIAlertController?
 var passwordReset : UIAlertController?
 var passwordHasReset : UIAlertController?
+    
+func getMainPart2(s: String) -> String {
+    var v = s.componentsSeparatedByString("@").last?.componentsSeparatedByString(".")
+        v?.removeLast()
+        
+        return (v!.last)!
+    }
     
 
 override func viewDidLoad() {
@@ -146,9 +154,13 @@ override func viewDidLoad() {
             print("\(emailTextField)")
             let domain = emailTextField!.componentsSeparatedByString("@")[1]
             let univID = "@" + domain
+            let university = self.getMainPart2(emailTextField!)
             print("User univID is \(univID)")
             let userPassword = "0"
             print("\(userPassword)")
+            
+            
+            
             
             
             //ADDING NEW USER TO FIREBASE
@@ -157,11 +169,11 @@ override func viewDidLoad() {
                 self.firebase.authUser(emailTextField, password: userPassword, withCompletionBlock: { (error:NSError!, authData:FAuthData!) -> Void in
                     print("\(authData.description)")
                     let uid = authData.uid
+                    self.universityName = university
                     self.userUnivId = univID
                     self.userEmail = emailTextField!
                     self.fullname = fullNameTextField!
-                    self.firebase.childByAppendingPath("users").childByAppendingPath(uid).setValue(["Full Name":self.fullname,"Email":self.userEmail,"UnivID":self.userUnivId])
-                    
+                    self.firebase.childByAppendingPath("Universities").childByAppendingPath(university).childByAppendingPath("Users").childByAppendingPath(uid).setValue(["Full Name":self.fullname,"Email":self.userEmail,"UnivID":self.userUnivId])
                 })
             })
         }

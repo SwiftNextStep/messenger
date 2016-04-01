@@ -23,7 +23,7 @@ class Groups : UITableViewController {
     var groupPassword = String()
     var fullName = String()
     
-    @IBAction func Options(sender: AnyObject) {
+    /*@IBAction func Options(sender: AnyObject) {
         
         let actionAlert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
@@ -44,7 +44,7 @@ class Groups : UITableViewController {
         actionAlert.addAction(cancel)
         
         self.presentViewController(actionAlert, animated: true, completion: nil)
-    }
+    }*/
     
     @IBOutlet var Open: UIBarButtonItem!
     

@@ -621,6 +621,10 @@
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image80.png" translatesAutoresizingMaskIntoConstraints="NO" id="OYG-p8-8G3">
                                         <rect key="frame" x="120" y="18" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="t0Q-QW-Pfu"/>
+                                            <constraint firstAttribute="width" constant="80" id="tax-V4-4gg"/>
+                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userUnivID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ra8-H2-yda">
                                         <rect key="frame" x="46" y="130" width="229" height="21"/>
@@ -715,16 +719,16 @@
                     <navigationItem key="navigationItem" title="Groups" id="jdX-2H-cer">
                         <barButtonItem key="backBarButtonItem" title=" " id="BEA-sX-bQJ"/>
                         <barButtonItem key="leftBarButtonItem" image="navigation.png" id="DvZ-Vk-61u"/>
-                        <barButtonItem key="rightBarButtonItem" image="option.png" id="xIO-U6-2qw">
+                        <barButtonItem key="rightBarButtonItem" image="search.png" id="xIO-U6-2qw">
                             <connections>
                                 <action selector="Options:" destination="Pge-ZU-FAv" id="K32-0g-vuM"/>
+                                <segue destination="ZPD-dx-6Zy" kind="show" id="Xhg-fR-bzU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="Open" destination="DvZ-Vk-61u" id="7Jt-yS-gVw"/>
-                        <segue destination="ZPD-dx-6Zy" kind="show" identifier="goToGroupSearch" id="7G7-ag-5DV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WG3-TB-Ena" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -743,7 +747,7 @@
                             <tableViewSection id="g3P-N8-4B9">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="2TR-oO-Ya0" imageView="TvS-b0-kqj" style="IBUITableViewCellStyleDefault" id="XZy-By-hLL">
-                                        <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XZy-By-hLL" id="E68-ya-jVx">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -764,7 +768,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="ico-m7-CrN" imageView="ytI-fO-klG" style="IBUITableViewCellStyleDefault" id="h0p-d9-GEr">
-                                        <rect key="frame" x="0.0" y="108" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="44" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h0p-d9-GEr" id="PjD-zg-N4L">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -785,7 +789,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="cyA-MK-3U5" imageView="1DS-Ly-Siw" style="IBUITableViewCellStyleDefault" id="4Ob-sN-AH8">
-                                        <rect key="frame" x="0.0" y="152" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="88" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Ob-sN-AH8" id="3IH-F7-DzK">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -836,7 +840,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Search" id="ZmS-2S-QYu">
-                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
@@ -844,7 +848,7 @@
                             <tableViewSection id="M3I-lG-8wa">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="FOJ-BT-wcK" style="IBUITableViewCellStyleDefault" id="o2L-Qe-REX">
-                                        <rect key="frame" x="0.0" y="108" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="44" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o2L-Qe-REX" id="8uq-tM-cjb">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -864,7 +868,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="dMn-4c-dJ3" style="IBUITableViewCellStyleDefault" id="pTz-Fb-rjq">
-                                        <rect key="frame" x="0.0" y="152" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="88" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pTz-Fb-rjq" id="eGo-Rc-52g">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -881,7 +885,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="uBq-VH-aBL" style="IBUITableViewCellStyleDefault" id="mOQ-eU-bc0">
-                                        <rect key="frame" x="0.0" y="196" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="132" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mOQ-eU-bc0" id="rPF-of-pag">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -898,7 +902,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="5yX-dL-RNc" style="IBUITableViewCellStyleDefault" id="6se-Ey-EyW">
-                                        <rect key="frame" x="0.0" y="240" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="176" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6se-Ey-EyW" id="1TF-vf-O6i">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
