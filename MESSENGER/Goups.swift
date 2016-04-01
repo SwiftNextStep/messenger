@@ -14,15 +14,16 @@ import Foundation
 
 class Groups : UITableViewController {
     
-    //let firebase = Firebase(url: "https://universitymessengerapp.firebaseio.com/")
+    let firebase = Firebase(url: "https://universitymessengerapp.firebaseio.com/")
     
-    //var createGroupAlert : UIAlertController?
+    var createGroupAlert : UIAlertController?
     
-    /*var univID = String()
+    var univID = String()
     var groupName = String()
     var groupPassword = String()
     var fullName = String()
     
+   
     @IBAction func Options(sender: AnyObject) {
         
         let actionAlert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
@@ -44,13 +45,13 @@ class Groups : UITableViewController {
         actionAlert.addAction(cancel)
         
         self.presentViewController(actionAlert, animated: true, completion: nil)
-    }*/
+    }
     
     @IBOutlet var Open: UIBarButtonItem!
     
     override func viewDidLoad() {
         
-        /*createGroupAlert = UIAlertController(title: "New Group", message: "Give your group a unique name.", preferredStyle: .Alert)
+        createGroupAlert = UIAlertController(title: "New Group", message: "Give your group a unique name.", preferredStyle: .Alert)
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction!) -> Void in
             print("Cancel button was pressed")
         }
@@ -91,7 +92,7 @@ class Groups : UITableViewController {
             }
         }
         
-        createGroupAlert?.addAction(alertActionForTextFields)*/
+        createGroupAlert?.addAction(alertActionForTextFields)
         
         Open.target = self.revealViewController()
         Open.action = Selector("revealToggle:")

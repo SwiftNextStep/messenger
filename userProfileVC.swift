@@ -10,6 +10,7 @@
 // THIS VC WILL DISPLAY CURRENT USER PROFILE INFO INCLUDING PROFILE IMAGE, FULL NAME, AND UnivId. Tapping on the Edit button (or top right navigation button) will prompt user to edit profile image or edit full name.
 
 import Foundation
+import UIKit
 
 class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -22,7 +23,7 @@ class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImageP
     
     var alertController : UIAlertController?
     
-    var firebase = Firebase(url: "https://universitymessengerapp.firebaseio.com/Universities")
+    var firebase = Firebase(url: "https://universitymessengerapp.firebaseio.com")
     
     let imagePicker = UIImagePickerController()
     
@@ -70,14 +71,14 @@ class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImageP
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*self.firebase.childByAppendingPath("Universities").childByAppendingPath("depaul").childByAppendingPath(self.firebase.authData.uid).observeSingleEventOfType(FEventType.Value) { (snapshot:FDataSnapshot!) -> Void in
+        self.firebase.childByAppendingPath("Universities").childByAppendingPath("depaul").childByAppendingPath("Users").childByAppendingPath(self.firebase.authData.uid).observeSingleEventOfType(FEventType.Value) { (snapshot:FDataSnapshot!) -> Void in
             self.fullName = (snapshot.value as! NSDictionary)["Full Name"] as! String
             print(self.fullName)
             self.univID = (snapshot.value as! NSDictionary)["UnivID"] as! String
             print(self.univID)
             
             self.userFullName.text = self.fullName
-            self.userUnivId.text = self.univID */
+            self.userUnivId.text = self.univID
             
             self.alertController = UIAlertController(title: "Edit Name", message: nil, preferredStyle: .Alert)
             
@@ -111,7 +112,7 @@ class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImageP
                 }
             }
             self.alertController?.addAction(alertActionForTextField)
-       //}
+       }
         
         currentUserImage.layer.cornerRadius = currentUserImage.frame.size.width/2
         currentUserImage.clipsToBounds = true

@@ -6,6 +6,7 @@
 //  Copyright © 2016 Kayamba Mukanzu. All rights reserved.
 
 import Foundation
+import UIKit
 
 class auth : UIViewController {
 
@@ -152,9 +153,10 @@ override func viewDidLoad() {
             
             let emailTextField = theTextFields[1].text
             print("\(emailTextField)")
-            let domain = emailTextField!.componentsSeparatedByString("@")[1]
-            let univID = "@" + domain
+            //let domain = emailTextField!.componentsSeparatedByString("@")[1]
+            //let univID = "@" + domain
             let university = self.getMainPart2(emailTextField!)
+            let univID = "@" + university + ".edu"
             print("User univID is \(univID)")
             let userPassword = "0"
             print("\(userPassword)")
@@ -170,6 +172,7 @@ override func viewDidLoad() {
                     self.userEmail = emailTextField!
                     self.fullname = fullNameTextField!
                     self.firebase.childByAppendingPath("Universities").childByAppendingPath(university).childByAppendingPath("Users").childByAppendingPath(uid).setValue(["Full Name":self.fullname,"Email":self.userEmail,"UnivID":self.userUnivId])
+                    
                 })
             })
         }
@@ -195,16 +198,16 @@ override func viewDidLoad() {
     
 }
 
-override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "segueJSQ"{
+/*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "goToUserProfile"{
         if let viewcontroller = segue.destinationViewController as? JSQViewController{
             viewcontroller.senderId = self.firebase.authData.uid
             viewcontroller.senderDisplayName = self.fullname
         }
     }
-}
+}*/
 func retriveUSerName(){
-    self.firebase.childByAppendingPath("users").childByAppendingPath(firebase.authData.uid).observeSingleEventOfType(.Value) { (snapshot:FDataSnapshot!) -> Void in
+    self.firebase.childByAppendingPath("Universities").childByAppendingPath(universityName).childByAppendingPath(firebase.authData.uid).observeSingleEventOfType(.Value) { (snapshot:FDataSnapshot!) -> Void in
         self.fullname = (snapshot.value as! NSDictionary)["Full Name"] as! String
     }
 }
