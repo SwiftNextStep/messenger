@@ -7,7 +7,7 @@
 
 //----------------------------------------------------------------------------
 
-// THIS VIEW CONTROLLER WILL DISPLAY GROUPS THAT THE CURRENT USER HAS JOINED. THE OPTIONS BUTTON (OR TOP RIGHT NAV ITEM) PROMPTS THE USER TO SEARCH GROUPS OR CREATE A GROUP.
+// THIS VIEW CONTROLLER WILL DISPLAY GROUP users under from firebase Universities nodes
 // TAPPING ON A CELL WILL OPENS GROUP INFO VIEW CONTROLLER
 
 import Foundation
@@ -15,7 +15,6 @@ import Foundation
 class Groups : UITableViewController {
     
     let firebase = Firebase(url: "https://universitymessengerapp.firebaseio.com/")
-    let userUnivId = Firebase(url: "https://universitymessengerapp.firebaseio.com/users")
     
     var createGroupAlert : UIAlertController?
     
@@ -24,13 +23,14 @@ class Groups : UITableViewController {
     var groupPassword = String()
     var fullName = String()
     
-    
+   
     @IBAction func Options(sender: AnyObject) {
         
         let actionAlert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
         let searchGroup = UIAlertAction(title: "Search Groups", style: .Default) { (Alert:UIAlertAction) -> Void in
             print("Search Groups button was pressed")
+            
             self.performSegueWithIdentifier("goToGroupSearch", sender: self)
         }
         let createGroup = UIAlertAction(title: "Create Group", style: .Default) { (Alert:UIAlertAction) -> Void in
@@ -83,14 +83,12 @@ class Groups : UITableViewController {
                 self.groupName = groupNameTextField!
                 self.groupPassword = passwordTextField!
                 
-                
-                self.firebase.childByAppendingPath("Groups").childByAutoId().setValue(["Group Name":self.groupName, "Group Password":self.groupPassword, "Creator": self.firebase.authData.uid])
-                
-                self.userUnivId.observeEventType(FEventType.ChildAdded, withBlock: { snapshot in
-                    print(snapshot.value.objectForKey("Full Name"))
+                self.firebase.childByAppendingPath("Universities").childByAppendingPath("depaul").childByAppendingPath("Users").childByAppendingPath(self.firebase.authData.uid).observeSingleEventOfType(FEventType.Value, withBlock: { (snapshot:FDataSnapshot!) -> Void in
+                    self.univID = (snapshot.value as! NSDictionary)["UnivID"] as! String
+                    print(self.univID)
                     
+                 self.firebase.childByAppendingPath("Universities").childByAppendingPath("depaul").childByAppendingPath("Groups").childByAutoId().setValue(["Group Name":self.groupName, "Group Password":self.groupPassword, "Creator": self.firebase.authData.uid, "UnivID":self.univID])
                 })
-                
             }
         }
         
@@ -101,20 +99,4 @@ class Groups : UITableViewController {
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
-    
-    
 }
-
-/*func retriveUSerName(){
-self.firebase.childByAppendingPath("users").childByAppendingPath(firebase.authData.uid).observeSingleEventOfType(.Value) { (snapshot:FDataSnapshot!) -> Void in
-self.fullname = (snapshot.value as! NSDictionary)["Full Name"] as! String
-}
-}
-
-
-
-
-
-
-
-*/

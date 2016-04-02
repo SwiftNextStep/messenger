@@ -6,6 +6,7 @@
 //  Copyright © 2016 Kayamba Mukanzu. All rights reserved.
 
 import Foundation
+import UIKit
 
 class auth : UIViewController {
 
@@ -14,6 +15,7 @@ var userEmail = String()
 var userUnivId = String()
 var fullname = String()
 var passWord = String()
+var universityName = String()
 
 var alertController : UIAlertController?
 var newAccountAlert : UIAlertController?
@@ -23,7 +25,15 @@ var resetPasswordAlert : UIAlertController?
 var passwordReset : UIAlertController?
 var passwordHasReset : UIAlertController?
     
-
+    
+    
+func getMainPart2(s: String) -> String {
+    var v = s.componentsSeparatedByString("@").last?.componentsSeparatedByString(".")
+        v?.removeLast()
+        
+        return (v!.last)!
+    }
+    
 override func viewDidLoad() {
     
     passwordHasReset = UIAlertController(title: "Password Reset Successful", message: "We've emailed you a temporary password.", preferredStyle: .Alert)
@@ -105,7 +115,7 @@ override func viewDidLoad() {
     signInAlert?.addAction(alertActionForTextFields)
     
     emailVerificationAlert = UIAlertController(title: "Email Verification", message: "We've sent you a temporary password. Check your email and then proceed to log in.", preferredStyle: .Alert)
-    let done = UIAlertAction(title: "Done", style: .Default) { (action) -> Void in
+    let done = UIAlertAction(title: "OK", style: .Default) { (action) -> Void in
         print("OK button was pressed")
         self.presentViewController(self.signInAlert!, animated: true, completion: nil)
     }
@@ -144,23 +154,26 @@ override func viewDidLoad() {
             
             let emailTextField = theTextFields[1].text
             print("\(emailTextField)")
-            let domain = emailTextField!.componentsSeparatedByString("@")[1]
-            let univID = "@" + domain
+            let university = self.getMainPart2(emailTextField!)
+            let univID = "@" + university + ".edu"
             print("User univID is \(univID)")
             let userPassword = "0"
             print("\(userPassword)")
-            
-            
+
             //ADDING NEW USER TO FIREBASE
             
             self.firebase.createUser(emailTextField, password: userPassword, withCompletionBlock: { (error:NSError!) -> Void in
                 self.firebase.authUser(emailTextField, password: userPassword, withCompletionBlock: { (error:NSError!, authData:FAuthData!) -> Void in
                     print("\(authData.description)")
                     let uid = authData.uid
+                    self.universityName = university
                     self.userUnivId = univID
                     self.userEmail = emailTextField!
                     self.fullname = fullNameTextField!
-                    self.firebase.childByAppendingPath("users").childByAppendingPath(uid).setValue(["Full Name":self.fullname,"Email":self.userEmail,"UnivID":self.userUnivId])
+                    
+                    self.firebase.childByAppendingPath("Universities").childByAppendingPath(self.universityName).childByAppendingPath("Users").childByAppendingPath(uid).setValue(["Full Name":self.fullname,"Email":self.userEmail,"UnivID":self.userUnivId])
+                    
+                    self.firebase.childByAppendingPath("Users").childByAppendingPath(uid).setValue(["Full Name":self.fullname,"Email":self.userEmail,"UnivID":self.userUnivId])
                     
                 })
             })
@@ -187,19 +200,20 @@ override func viewDidLoad() {
     
 }
 
-override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "segueJSQ"{
+/*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "goToUserProfile"{
         if let viewcontroller = segue.destinationViewController as? JSQViewController{
             viewcontroller.senderId = self.firebase.authData.uid
             viewcontroller.senderDisplayName = self.fullname
         }
     }
-}
+}*/
 func retriveUSerName(){
-    self.firebase.childByAppendingPath("users").childByAppendingPath(firebase.authData.uid).observeSingleEventOfType(.Value) { (snapshot:FDataSnapshot!) -> Void in
+    self.firebase.childByAppendingPath("Universities").childByAppendingPath(universityName).childByAppendingPath(firebase.authData.uid).observeSingleEventOfType(.Value) { (snapshot:FDataSnapshot!) -> Void in
         self.fullname = (snapshot.value as! NSDictionary)["Full Name"] as! String
     }
 }
+    
 override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     

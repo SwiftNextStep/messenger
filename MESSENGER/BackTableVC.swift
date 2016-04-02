@@ -16,16 +16,33 @@ class BackTableBV: UITableViewController {
     
     var cell : UITableViewCell?
     
+    var fullName = String()
+    var univID = String()
+    
+    var firebase = Firebase(url: "https://universitymessengerapp.firebaseio.com")
    
     @IBOutlet var currentUserImage: UIImageView!
+    @IBOutlet var userFullName: UILabel!
+    @IBOutlet var userUnivId: UILabel!
+    @IBOutlet var unreadMessageCount: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.firebase.childByAppendingPath("Users").childByAppendingPath(self.firebase.authData.uid).observeSingleEventOfType(FEventType.Value) { (snapshot:FDataSnapshot!) -> Void in
+            self.fullName = (snapshot.value as! NSDictionary)["Full Name"] as! String
+            print(self.fullName)
+            self.univID = (snapshot.value as! NSDictionary)["UnivID"] as! String
+            print(self.univID)
+            
+            self.userFullName.text = self.fullName
+            self.userUnivId.text = self.univID
+        }
+        
         currentUserImage.layer.cornerRadius = currentUserImage.frame.size.width/2
         currentUserImage.clipsToBounds = true
         
-        currentUserImage.layer.borderWidth = 2.0;
+        currentUserImage.layer.borderWidth = 1.0;
         currentUserImage.layer.borderColor = UIColor.whiteColor().CGColor
         
         tableView.tableFooterView = UIView()
