@@ -25,6 +25,8 @@ var resetPasswordAlert : UIAlertController?
 var passwordReset : UIAlertController?
 var passwordHasReset : UIAlertController?
     
+    
+    
 func getMainPart2(s: String) -> String {
     var v = s.componentsSeparatedByString("@").last?.componentsSeparatedByString(".")
         v?.removeLast()
@@ -32,10 +34,6 @@ func getMainPart2(s: String) -> String {
         return (v!.last)!
     }
     
-    struct globalVariable {
-        static var mystring = String()
-    }
-
 override func viewDidLoad() {
     
     passwordHasReset = UIAlertController(title: "Password Reset Successful", message: "We've emailed you a temporary password.", preferredStyle: .Alert)

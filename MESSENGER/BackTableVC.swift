@@ -25,8 +25,6 @@ class BackTableBV: UITableViewController {
     @IBOutlet var userFullName: UILabel!
     @IBOutlet var userUnivId: UILabel!
     @IBOutlet var unreadMessageCount: UILabel!
-    
-    var recievedString : String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()

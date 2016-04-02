@@ -20,6 +20,7 @@ class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImageP
     
     var fullName = String()
     var univID = String()
+    var universityName = String()
     
     var alertController : UIAlertController?
     
