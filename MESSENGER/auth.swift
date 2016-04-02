@@ -170,7 +170,10 @@ override func viewDidLoad() {
                     self.userUnivId = univID
                     self.userEmail = emailTextField!
                     self.fullname = fullNameTextField!
+                    
                     self.firebase.childByAppendingPath("Universities").childByAppendingPath(self.universityName).childByAppendingPath("Users").childByAppendingPath(uid).setValue(["Full Name":self.fullname,"Email":self.userEmail,"UnivID":self.userUnivId])
+                    
+                    self.firebase.childByAppendingPath("Users").childByAppendingPath(uid).setValue(["Full Name":self.fullname,"Email":self.userEmail,"UnivID":self.userUnivId])
                     
                 })
             })

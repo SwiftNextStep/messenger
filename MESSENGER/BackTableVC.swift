@@ -29,15 +29,15 @@ class BackTableBV: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.firebase.childByAppendingPath("users").childByAppendingPath(self.firebase.authData.uid).observeSingleEventOfType(FEventType.Value) { (snapshot:FDataSnapshot!) -> Void in
-            //self.fullName = (snapshot.value as! NSDictionary)["Full Name"] as! String
-            //print(self.fullName)
-            //self.univID = (snapshot.value as! NSDictionary)["UnivID"] as! String
-            //print(self.univID)
+        self.firebase.childByAppendingPath("Users").childByAppendingPath(self.firebase.authData.uid).observeSingleEventOfType(FEventType.Value) { (snapshot:FDataSnapshot!) -> Void in
+            self.fullName = (snapshot.value as! NSDictionary)["Full Name"] as! String
+            print(self.fullName)
+            self.univID = (snapshot.value as! NSDictionary)["UnivID"] as! String
+            print(self.univID)
             
-            //self.userFullName.text = self.fullName
-            //self.userUnivId.text = self.univID
-        //}
+            self.userFullName.text = self.fullName
+            self.userUnivId.text = self.univID
+        }
         
         currentUserImage.layer.cornerRadius = currentUserImage.frame.size.width/2
         currentUserImage.clipsToBounds = true

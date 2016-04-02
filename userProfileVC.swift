@@ -72,7 +72,7 @@ class userProfileVC : UIViewController, UINavigationControllerDelegate, UIImageP
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.firebase.childByAppendingPath("Universities").childByAppendingPath("depaul").childByAppendingPath("Users").childByAppendingPath(self.firebase.authData.uid).observeSingleEventOfType(FEventType.Value) { (snapshot:FDataSnapshot!) -> Void in
+        self.firebase.childByAppendingPath("Users").childByAppendingPath(self.firebase.authData.uid).observeSingleEventOfType(FEventType.Value) { (snapshot:FDataSnapshot!) -> Void in
             self.fullName = (snapshot.value as! NSDictionary)["Full Name"] as! String
             print(self.fullName)
             self.univID = (snapshot.value as! NSDictionary)["UnivID"] as! String
